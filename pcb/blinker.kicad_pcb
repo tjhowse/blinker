@@ -640,7 +640,7 @@
       (net 2 "GND") (pintype "passive") (tstamp 0a5a2353-6ffb-464b-ae0c-a5e039d65040))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -954,7 +954,7 @@
       (net 2 "GND") (pintype "passive") (tstamp 31f94a70-6b6b-4238-bd7f-261cd0805635))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1268,7 +1268,7 @@
       (net 2 "GND") (pintype "passive") (tstamp e7c870b7-f54f-475d-9425-45248bb025b4))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -1582,7 +1582,7 @@
       (net 2 "GND") (pintype "passive") (tstamp 43f5bf40-f81b-4599-a1d4-9e3d4e31a145))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2008,7 +2008,7 @@
       (net 2 "GND") (pintype "passive") (tstamp 597f17a2-65a6-4eff-a993-69bf5fa28049))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
@@ -2372,7 +2372,7 @@
       (net 2 "GND") (pintype "passive") (tstamp cfc705c9-7f0f-4799-8a0b-7a5ec29c95a7))
     (model "${KICAD6_3DMODEL_DIR}/Capacitor_THT.3dshapes/CP_Radial_D16.0mm_P7.50mm.wrl"
       (offset (xyz 0 0 0))
-      (scale (xyz 1 1 2))
+      (scale (xyz 1 1 1))
       (rotate (xyz 0 0 0))
     )
   )
