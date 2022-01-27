@@ -1,8 +1,8 @@
 Comment,Designator,Footprint,LCSC
 ATtiny10-TS,U1,SOT-23-6,C128438
 D_Schottky,D1,D_SOD-323,C22623
+LED,D3,LED_0603_1608Metric,C2286
 220,R1,R_0603_1608Metric,C22962
-LED,D3,LED_0805_2012Metric,C84256
 D_Zener,D2,D_SOD-123,C96629
 C_Polarized,C2,CP_Radial_D16.0mm_P7.50mm,
 ISP,J1,PinHeader_2x05_P2.54mm_Vertical,
