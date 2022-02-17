@@ -6,7 +6,7 @@ C4,C_Polarized,CP_Radial_D16.0mm_P7.50mm,149.86,-101.6,180.0,bottom
 C5,C_Polarized,CP_Radial_D16.0mm_P7.50mm,157.48,-88.401773,120.0,bottom
 C6,C_Polarized,CP_Radial_D16.0mm_P7.50mm,172.72,-88.401773,60.0,bottom
 D1,D_Schottky,D_SOD-323,158.05,-92.74,-90.0,top
-D2,D_Zener,D_SOD-123,146.7,-105.52,0.0,top
+D2,D_Zener,D_SOD-123,146.7,-105.52,180.0,top
 D3,LED,LED_0603_1608Metric,165.1,-76.2,0.0,top
 J1,ISP,PinHeader_2x05_P2.54mm_Vertical,170.84,-106.9,0.0,bottom
 JP1,Jumper_2_Open,PinHeader_1x02_P2.54mm_Vertical,163.21,-107.39,-90.0,bottom
