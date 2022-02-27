@@ -8,6 +8,7 @@ uint16_t const sequence_length = 32;
 uint16_t volatile counter = 0;
 
 #include <avr/wdt.h>
+#include <avr/interrupt.h>
 #include <avr/sleep.h>
 
 // // TODO Remove this.
@@ -33,28 +34,32 @@ void setup() {
   // Setup IO:
   DDRB = 0b0100; // PB2 as an output
   led_on();
+  sei();
 
   // This tells the watchdog timer to fire every 250ms.
   // When it fires we will wake from sleep into the WDT_vect ISR.
   // wdt_enable(WDTO_250MS);
   // wdt_enable(WDTO_8S);
-  wdt_enable(WDTO_1S);
+  // wdt_enable(WDTO_4S);
   // This should set interrupt mode on the watchdog timer - no reset.
   // wdt_disable();
   // Clear WDE
-  RSTFLR &= ~(1<<WDRF);
-  WDTCSR &= ~(1<<WDE);
+  // RSTFLR &= ~(1<<WDRF);
+  // WDTCSR &= ~(1<<WDE);
   // Set WDIE
-  WDTCSR |= (1<<WDIE);
+  // WDTCSR |= (1<<WDIE);
   // WDTCSR |= (1<<WDIE | 1<<WDE);
   // WDTCSR |= (1<<WDIE | 1<<WDE);
   // CCP = 0xD8; // Magic number to enable change of a protected I/O register.
-  sleep();
+  // sleep();
 }
 
 void sleep() {
+  // delay(2000);
   // return;
   // set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+  wdt_enable(WDTO_4S);
+  WDTCSR |= (1<<WDIE | 1<<WDE);
   set_sleep_mode(SLEEP_MODE_IDLE);
   sleep_enable();
   sleep_cpu();
@@ -69,41 +74,64 @@ void blink() {
   counter = (counter + 1)%sequence_length;
 }
 
-ISR(WDT) {
-  wdt_reset();
-  // Clear WDE. This should prevent a reboot.
+ISR(WDT_vect) {
   RSTFLR &= ~(1<<WDRF);
   WDTCSR &= ~(1<<WDE);
+  sleep_disable();
   // wdt_reset();
   // wdt_disable();
-  // if (RSTFLR & (1<<WDRF)) {
-  //   // Reset was caused by the watchdog timer.
-  //   for (int i = 0; i < 10; i++) {
-  //     led_off();
-  //     delay(100);
-  //     led_on();
-  //     delay(100);
-  //   }
-  // }
-  led_off();
-  // if (WDTCSR & 1<<WDE) {
-  //   led_off();
-  // } else {
-  //   led_on();
-  // }
-  // WDTCSR |= 1<<WDIE;
-  // If we don't do something here, feed the watchdog maybe? The system will reset
-  // after this vector is executed.
-  // wdt_reset();
-
-  // WDTCSR |= 1<<WDIE;
   // RSTFLR &= ~(1<<WDRF);
   // WDTCSR &= ~(1<<WDE);
-
-  // blink();
-  // sleep();
-}
-
-void loop() {
   // led_off();
 }
+void loop() {
+  // wdt_reset();
+  led_off();
+  sleep();
+  // wdt_reset();
+  led_on();
+  sleep();
+}
+//   sleep_disable();
+// // ISR(0x9) {
+//   // Clear WDE. This should prevent a reboot.
+//   // RSTFLR &= ~(1<<WDRF);
+//   // WDTCSR &= ~(1<<WDE);
+//   // while (1) {
+//   //   led_off();
+//   //   delay(500);
+//   //   wdt_reset();
+//   //   led_on();
+//   //   delay(500);
+//   //   wdt_reset();
+//   // }
+//   // wdt_reset();
+//   wdt_disable();
+//   // if (RSTFLR & (1<<WDRF)) {
+//   //   // Reset was caused by the watchdog timer.
+//   //   for (int i = 0; i < 10; i++) {
+//   //     led_off();
+//   //     delay(100);
+//   //     led_on();
+//   //     delay(100);
+//   //   }
+//   // }
+//   // wdt_enable(WDTO_8S);
+//   led_off();
+//   // if (WDTCSR & 1<<WDE) {
+//   //   led_off();
+//   // } else {
+//   //   led_on();
+//   // }
+//   // WDTCSR |= 1<<WDIE;
+//   // If we don't do something here, feed the watchdog maybe? The system will reset
+//   // after this vector is executed.
+//   // wdt_reset();
+
+//   // WDTCSR |= 1<<WDIE;
+//   // RSTFLR &= ~(1<<WDRF);
+//   // WDTCSR &= ~(1<<WDE);
+
+//   // blink();
+//   // sleep();
+// }
