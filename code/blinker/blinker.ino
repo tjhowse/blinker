@@ -41,10 +41,14 @@ void setup() {
   wdt_enable(WDTO_1S);
   // This should set interrupt mode on the watchdog timer - no reset.
   // wdt_disable();
-  // RSTFLR &= ~(1<<WDRF);
-  WDTCSR |= (1<<WDIE | 1<<WDE);
+  // Clear WDE
+  RSTFLR &= ~(1<<WDRF);
+  WDTCSR &= ~(1<<WDE);
+  // Set WDIE
+  WDTCSR |= (1<<WDIE);
+  // WDTCSR |= (1<<WDIE | 1<<WDE);
+  // WDTCSR |= (1<<WDIE | 1<<WDE);
   // CCP = 0xD8; // Magic number to enable change of a protected I/O register.
-  // WDTCSR &= ~(1<<WDE);
   sleep();
 }
 
@@ -57,7 +61,6 @@ void sleep() {
 }
 
 void blink() {
-  wdt_reset();
   if (sequence[counter>>3] & (0x01 << counter%8)) {
     led_off();
   } else {
@@ -66,7 +69,11 @@ void blink() {
   counter = (counter + 1)%sequence_length;
 }
 
-ISR(WDT_vect) {
+ISR(WDT) {
+  wdt_reset();
+  // Clear WDE. This should prevent a reboot.
+  RSTFLR &= ~(1<<WDRF);
+  WDTCSR &= ~(1<<WDE);
   // wdt_reset();
   // wdt_disable();
   // if (RSTFLR & (1<<WDRF)) {
