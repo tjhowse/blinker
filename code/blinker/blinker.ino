@@ -58,7 +58,9 @@ void sleep() {
   // delay(2000);
   // return;
   // set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-  wdt_enable(WDTO_4S);
+  // wdt_enable(WDTO_4S);
+  // wdt_enable(WDTO_250MS);
+  wdt_enable(WDTO_120MS);
   WDTCSR |= (1<<WDIE | 1<<WDE);
   set_sleep_mode(SLEEP_MODE_IDLE);
   sleep_enable();
@@ -67,9 +69,9 @@ void sleep() {
 
 void blink() {
   if (sequence[counter>>3] & (0x01 << counter%8)) {
-    led_off();
-  } else {
     led_on();
+  } else {
+    led_off();
   }
   counter = (counter + 1)%sequence_length;
 }
@@ -86,11 +88,12 @@ ISR(WDT_vect) {
 }
 void loop() {
   // wdt_reset();
-  led_off();
+  // led_off();
+  blink();
   sleep();
   // wdt_reset();
-  led_on();
-  sleep();
+  // led_on();
+  // sleep();
 }
 //   sleep_disable();
 // // ISR(0x9) {
