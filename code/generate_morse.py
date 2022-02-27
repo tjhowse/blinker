@@ -7,16 +7,9 @@
 
 # // https://morsecode.world/international/timing.html
 # // Aim for 12 WPM, I.E. 1 character per second on average.
-# // uint8_t const unit = 10; // Clock cycles? Something? Dunno.
-# // uint8_t const dit_length = 1*unit;
-# // uint8_t const dah_length = 3*unit;
-# // uint8_t const intra_character_gap = 1*unit;
-# // uint8_t const inter_character_gap = 3*unit;
-# // uint8_t const word_gap = 7*unit;
 
-msg = "hello from the howse family travis michelle alex and sam"
-msg2 = "paris "*120
-# msg = "hello hello"
+import click
+
 flash_bytes = 1024
 program_bytes = 200
 sequence_bytes = flash_bytes-program_bytes
@@ -59,7 +52,7 @@ def method1(string):
         'y': [dah, dit, dah, dah],
         'z': [dah, dah, dit, dit]
     }
-
+    string = string.lower()
     output = []
     for char in string:
         if char == ' ':
@@ -79,24 +72,32 @@ def bit_list_to_bytes(bit_list):
     output = [0]
     count = 0
     for bit in bit_list:
-        output[-1] |= (bit << (7-count))
+        output[-1] |= (bit << count)
         count += 1
         if count == 8:
             count = 0
             output.append(0)
     return output
 
+def encode_string_to_c_bytes_array(string):
+    bit_list = method1(string)
+    byte_list =  bit_list_to_bytes(bit_list)
+    result = "uint8_t const sequence[] = {"
+    for byte in byte_list:
+        result += "0x{:02x}, ".format(byte)
+        # result += "{:02}, ".format(byte)
+    result = result[:-2] + "};"
+    return result
 
+@click.command()
+@click.argument('string')
+def main_morse(string):
+    with open("blinker/sequence.h", "w") as f:
+        f.write("// {}\n".format(string))
+        f.write(encode_string_to_c_bytes_array(string))
 
-test = method1(msg)
-print(msg)
-print("bytes: {}".format(len(test)/8))
-print(bit_list_to_bytes(test))
-test = method1(msg2)
-print(len(test))
+if __name__ == '__main__':
+    main_morse()
+    # print(encode_string_to_c_bytes_array("Hello World"))
+    # print(encode_string_to_c_bytes_array("ss s"))
 
-final = bit_list_to_bytes(test)
-
-print(final)
-
-counter = 0
