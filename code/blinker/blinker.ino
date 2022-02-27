@@ -3,17 +3,11 @@
 uint16_t counter = 0;
 
 #include <avr/wdt.h>
-#include <avr/interrupt.h>
 #include <avr/sleep.h>
 #include "sequence.h"
 
-void led_off() {
-  PORTB = 0b0100;
-}
-
-void led_on() {
-  PORTB = 0b0000;
-}
+#define LED_OFF PORTB = 0b0100
+#define LED_ON PORTB = 0b0000
 
 void setup() {
   // Power saving measures:
@@ -24,7 +18,7 @@ void setup() {
 
   // Setup IO:
   DDRB = 0b0100; // PB2 as an output
-  led_off();
+  LED_OFF;
 
   // Enable interrupts
   sei();
@@ -44,9 +38,9 @@ void sleep() {
 // This looks at the next bit in the sequence and sets the LED accordingly.
 void blink() {
   if (sequence[counter>>3] & (0x01 << counter%8)) {
-    led_on();
+    LED_ON;
   } else {
-    led_off();
+    LED_OFF;
   }
   counter = (counter + 1)%(sizeof(sequence)*8);
 }
