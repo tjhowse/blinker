@@ -98,8 +98,8 @@ def encode_string_to_c_bytes_array(string):
 @click.command()
 @click.argument('string')
 def main_morse(string):
+    array, message = encode_string_to_c_bytes_array(string)
     with open("blinker/sequence.h", "w") as f:
-        array, message = encode_string_to_c_bytes_array(string)
         f.write("// {}\n".format(message))
         f.write(array)
 
