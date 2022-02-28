@@ -1,8 +1,6 @@
 // http://www.technoblogy.com/show?1YQY
 
-// uint16_t byte_counter = 0;
 uint16_t counter = 0;
-// uint8_t bit_counter = 0;
 
 #include <avr/wdt.h>
 #include <avr/sleep.h>
@@ -39,21 +37,12 @@ void sleep() {
 
 // This looks at the next bit in the sequence and sets the LED accordingly.
 void blink() {
-  // if (sequence[byte_counter] & (0x01 << bit_counter)) {
-  // if (0x01 & (sequence[byte_counter] >> bit_counter)) {
-  //   LED_ON;
-  // } else {
-  //   LED_OFF;
-  // }
-  // counter = (counter + 1)%(sizeof(sequence)*8);
-  PORTB = (0x01 & ~(sequence[(counter & 0xFFF8)>>3] >> (counter & 0x07))) << 2;
+  if (sequence[counter>>3] & (0x01 << counter%8)) {
+    LED_ON;
+  } else {
+    LED_OFF;
+  }
   counter = (counter + 1)%(sizeof(sequence)*8);
-  // bit_counter++;
-  // if (bit_counter == 8) {
-  //   bit_counter = 0;
-  //   byte_counter = (byte_counter + 1)%sizeof(sequence);
-  // }
-
 }
 
 // This fires when the watchdog timer expires and wakes up the CPU.
