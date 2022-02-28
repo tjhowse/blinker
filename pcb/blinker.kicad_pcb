@@ -2448,7 +2448,7 @@
   (gr_text "ISP" (at 167.71 95.6 90) (layer "B.SilkS") (tstamp 82487c2d-3895-4582-a020-4a1a45209dcf)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
-  (gr_text "Blinker v1.0\nCC0-1.0 License " (at 165.57 123.02) (layer "F.SilkS") (tstamp 690d928a-65bd-4540-8c8a-f88ba1134d88)
+  (gr_text "Blinker v1.1\nCC0-1.0 License " (at 165.57 123.02) (layer "F.SilkS") (tstamp 690d928a-65bd-4540-8c8a-f88ba1134d88)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_text "MORSE" (at 165.25 78.22) (layer "F.SilkS") (tstamp 90101b49-614c-45c0-8ea1-4e8c656a49a1)
