@@ -1,0 +1,11 @@
+low_H = 154
+high_H = 178
+low_S = 0
+high_S = 40
+low_V = 106
+high_V = 255
+high_F = 75
+count_threshold = 25
+hue = 0
+gain = 0
+saturation = 255
