@@ -54,19 +54,23 @@ def method1(string):
     }
     string = string.lower()
     output = []
+    encoded_message = ""
     for char in string:
         if char == ' ':
             to_add = word_end
+        elif char not in morse:
+            continue
         else:
             to_add = []
             for bit in morse[char]:
                 to_add.extend(bit)
             to_add.extend(char_end)
+        encoded_message += char
         for bit in to_add:
             output += [bit]
 
 
-    return output
+    return output, encoded_message
 
 def bit_list_to_bytes(bit_list):
     output = [0]
@@ -80,21 +84,24 @@ def bit_list_to_bytes(bit_list):
     return output
 
 def encode_string_to_c_bytes_array(string):
-    bit_list = method1(string)
-    byte_list =  bit_list_to_bytes(bit_list)
+    bit_list, message = method1(string)
+    byte_list = bit_list_to_bytes(bit_list)
+    if len(byte_list) > 652:
+        raise Exception("Message is probably too long to fit in flash.")
     result = "uint8_t const sequence[] = {"
     for byte in byte_list:
         result += "0x{:02x}, ".format(byte)
         # result += "{:02}, ".format(byte)
     result = result[:-2] + "};"
-    return result
+    return result, message
 
 @click.command()
 @click.argument('string')
 def main_morse(string):
     with open("blinker/sequence.h", "w") as f:
-        f.write("// {}\n".format(string))
-        f.write(encode_string_to_c_bytes_array(string))
+        array, message = encode_string_to_c_bytes_array(string)
+        f.write("// {}\n".format(message))
+        f.write(array)
 
 if __name__ == '__main__':
     main_morse()

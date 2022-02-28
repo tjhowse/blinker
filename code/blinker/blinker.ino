@@ -1,6 +1,6 @@
 // http://www.technoblogy.com/show?1YQY
 
-uint16_t counter = 0;
+uint32_t counter = 0;
 
 #include <avr/wdt.h>
 #include <avr/sleep.h>
