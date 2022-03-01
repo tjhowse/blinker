@@ -4,6 +4,7 @@ from itertools import count
 import cv2 as cv
 import argparse
 import toml
+import numpy as np
 max_value = 255
 max_value_H = 360//2
 low_H = 1
@@ -17,6 +18,10 @@ high_H = 180
 high_S = 255
 high_V = 255
 high_F = 75
+morse_time = 500
+click_x = 0
+click_y = 0
+box_size = 5
 window_capture_name = 'Video Capture'
 window_detection_name = 'Object Detection'
 low_H_name = 'Low H'
@@ -81,14 +86,24 @@ def on_saturation_trackbar(val):
     global cam_saturation
     cam_saturation = val
     cap.set(cv.CAP_PROP_SATURATION, cam_saturation)
-
+def on_morse_time_trackbar(val):
+    global morse_time
+    morse_time = val
+def on_click(event, x, y, flags, param):
+    if event == cv.EVENT_LBUTTONDOWN:
+        global click_x
+        global click_y
+        click_x = x
+        click_y = y
 
 parser = argparse.ArgumentParser(description='Code for Thresholding Operations using inRange tutorial.')
 parser.add_argument('--camera', help='Camera divide number.', default=1, type=int)
 args = parser.parse_args()
 cap = cv.VideoCapture(args.camera)
+
 cv.namedWindow(window_capture_name)
 cv.namedWindow(window_detection_name)
+cv.setMouseCallback(window_capture_name, on_click)
 cv.createTrackbar(low_H_name, window_detection_name , low_H, max_value_H, on_low_H_thresh_trackbar)
 cv.createTrackbar(high_H_name, window_detection_name , high_H, max_value_H, on_high_H_thresh_trackbar)
 cv.createTrackbar(low_S_name, window_detection_name , low_S, max_value, on_low_S_thresh_trackbar)
@@ -100,7 +115,13 @@ cv.createTrackbar("Threshold", window_detection_name , count_threshold, 1024, on
 cv.createTrackbar("Hue", window_detection_name , cam_hue, 255, on_hue_trackbar)
 cv.createTrackbar("Gain", window_detection_name , cam_gain, 255, on_gain_trackbar)
 cv.createTrackbar("Saturation", window_detection_name , cam_saturation, 255, on_saturation_trackbar)
+cv.createTrackbar("Morse Time", window_detection_name , morse_time, 1000, on_morse_time_trackbar)
 cap.set(cv.CAP_PROP_AUTOFOCUS, 0)
+cap.set(cv.CAP_DSHOW, 1)
+cap.set(cv.CAP_PROP_FOURCC, cv.VideoWriter_fourcc(*'MJPG'))
+cap.set(cv.CAP_PROP_FRAME_HEIGHT , 720)
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv.CAP_PROP_FPS, 60)
 dit = "dit"
 dah = "dah"
 morse = {
@@ -132,8 +153,6 @@ morse = {
     'z': [dah, dah, dit, dit]
 }
 # CAP_PROP_SATURATION
-# cap.set(cv.CAP_PROP_FRAME_HEIGHT , 240)
-# cap.set(cv.CAP_PROP_FRAME_WIDTH, 320)
 with open("settings.toml", "r") as f:
     settings = toml.load(f)
     cam_hue = settings["hue"]
@@ -153,6 +172,7 @@ with open("settings.toml", "r") as f:
     low_V = settings["low_V"]
     high_V = settings["high_V"]
     count_threshold = settings["count_threshold"]
+    morse_time = settings["morse_time"]
     cv.setTrackbarPos(low_H_name, window_detection_name, low_H)
     cv.setTrackbarPos(high_H_name, window_detection_name, high_H)
     cv.setTrackbarPos(low_S_name, window_detection_name, low_S)
@@ -164,6 +184,7 @@ with open("settings.toml", "r") as f:
     cv.setTrackbarPos("Hue", window_detection_name, cam_hue)
     cv.setTrackbarPos("Gain", window_detection_name, cam_gain)
     cv.setTrackbarPos("Saturation", window_detection_name, cam_saturation)
+    cv.setTrackbarPos("Morse Time", window_detection_name, morse_time)
 on_off = False
 start_time = time.time()*1000
 last_transition_time = start_time
@@ -177,6 +198,10 @@ while True:
     # frame_HSV = frame_HSV[180:200, 180:200]
     frame_threshold = cv.inRange(frame_HSV, (low_H, low_S, low_V), (high_H, high_S, high_V))
     frame_threshold = cv.erode(frame_threshold, None, iterations=2)
+    masked = np.zeros(frame_threshold.shape,np.uint8)
+    masked[click_y-box_size:click_y+box_size,click_x-box_size:click_x+box_size] = frame_threshold[click_y-box_size:click_y+box_size,click_x-box_size:click_x+box_size]
+    frame_threshold = masked
+    frame = cv.rectangle(frame, (click_x-box_size, click_y-box_size), (click_x+box_size, click_y+box_size), (255, 0, 255), thickness=1)
 
     # print(cv.countNonZero(frame_threshold))
 
@@ -187,11 +212,11 @@ while True:
             on_off = True
             # print("{}, off".format(frame_time-last_transition_time))
             off_time = frame_time-last_transition_time
-            if off_time < 1000:
+            if off_time < 2*morse_time:
                 pass
                 # print(" ", end="")
                 # letter += " "
-            elif off_time > 1000:
+            elif off_time > 2*morse_time:
                 for k,v in morse.items():
                     if letter == v:
                         print(k, end="")
@@ -199,7 +224,7 @@ while True:
                 else:
                     print("?", end="")
                 letter = []
-                if off_time > 2000:
+                if off_time > 4*morse_time:
                     print("")
 
 
@@ -210,7 +235,7 @@ while True:
             on_off = False
             # print("{}, on".format(frame_time-last_transition_time))
             on_time = frame_time-last_transition_time
-            if on_time < 1000:
+            if on_time < 2*morse_time:
                 # print("dit", end = "")
                 letter += ["dit"]
             else:
@@ -236,6 +261,7 @@ while True:
         settings["hue"] = cam_hue
         settings["gain"] = cam_gain
         settings["saturation"] = cam_saturation
+        settings["morse_time"] = morse_time
         with open("settings.toml", "w") as f:
             toml.dump(settings, f)
         break
