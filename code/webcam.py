@@ -119,8 +119,8 @@ cv.createTrackbar("Morse Time", window_detection_name , morse_time, 1000, on_mor
 cap.set(cv.CAP_PROP_AUTOFOCUS, 0)
 cap.set(cv.CAP_DSHOW, 1)
 cap.set(cv.CAP_PROP_FOURCC, cv.VideoWriter_fourcc(*'MJPG'))
-cap.set(cv.CAP_PROP_FRAME_HEIGHT , 720)
-cap.set(cv.CAP_PROP_FRAME_WIDTH, 1280)
+cap.set(cv.CAP_PROP_FRAME_HEIGHT , 240)
+cap.set(cv.CAP_PROP_FRAME_WIDTH, 320)
 cap.set(cv.CAP_PROP_FPS, 60)
 dit = "dit"
 dah = "dah"
@@ -189,9 +189,22 @@ on_off = False
 start_time = time.time()*1000
 last_transition_time = start_time
 letter = []
+fps_measure = start_time
+
+# while True:
+#     ret, frame = cap.read()
+#     print("FPS: {}".format(1/(time.time()-fps_measure)))
+#     fps_measure = time.time()
+#     frame_threshold = frame
+#     cv.imshow(window_capture_name, frame)
+#     cv.imshow(window_detection_name, frame_threshold)
+fps_print_deadline = time.monotonic() + 1
 while True:
-    cap.set(28, high_F)
     ret, frame = cap.read()
+    # if time.monotonic() > fps_print_deadline:
+    #     print("FPS: {}".format(1/(time.time()-fps_measure)))
+    #     fps_print_deadline = time.monotonic() + 1
+    # fps_measure = time.time()
     if frame is None:
         break
     frame_HSV = cv.cvtColor(frame, cv.COLOR_BGR2HSV)

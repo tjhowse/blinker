@@ -58,12 +58,13 @@ def method1(string):
     for char in string:
         if char == ' ' or char not in morse:
             to_add = word_end
+            encoded_message += " "
         else:
             to_add = []
             for bit in morse[char]:
                 to_add.extend(bit)
             to_add.extend(char_end)
-        encoded_message += char
+            encoded_message += char
         for bit in to_add:
             output += [bit]
 
