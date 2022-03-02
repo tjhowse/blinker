@@ -50,7 +50,38 @@ def method1(string):
         'w': [dit, dah, dah],
         'x': [dah, dit, dit, dah],
         'y': [dah, dit, dah, dah],
-        'z': [dah, dah, dit, dit]
+        'z': [dah, dah, dit, dit],
+        '1': [dit, dah, dah, dah, dah],
+        '2': [dit, dit, dah, dah, dah],
+        '3': [dit, dit, dit, dah, dah],
+        '4': [dit, dit, dit, dit, dah],
+        '5': [dit, dit, dit, dit, dit],
+        '6': [dah, dit, dit, dit, dit],
+        '7': [dah, dah, dit, dit, dit],
+        '8': [dah, dah, dah, dit, dit],
+        '9': [dah, dah, dah, dah, dit],
+        '0': [dah, dah, dah, dah, dah],
+        # Fun story: I'm using copilot to write this, and it started filling out 0-9 by itself
+        # so I let it run with it. It then started doing the below which I'm reasonably
+        # sure it invented from whole cloth.
+        # '.': [dit, dah, dah, dah, dah, dah],
+        # ',': [dah, dah, dah, dah, dah, dit],
+        # '?': [dit, dit, dah, dah, dit, dit],
+        # '\'': [dit, dit, dah, dah, dah, dah],
+        # '!': [dit, dit, dah, dah, dah, dah, dah],
+        # '/': [dah, dit, dit, dah, dah],
+        # '(': [dah, dit, dah, dit, dah],
+        # ')': [dah, dit, dah, dit, dah, dah],
+        # '&': [dit, dit, dah, dit, dah, dit],
+        # ':': [dah, dah, dah, dah, dah, dah, dah],
+        # ';': [dah, dah, dah, dah, dah, dah, dit],
+        # '=': [dah, dah, dah, dah, dah, dah, dah, dah],
+        # '+': [dah, dah, dah, dah, dah, dah, dah, dah, dah],
+        # '-': [dah, dah, dah, dah, dah, dah, dah, dah, dah, dah],
+        # '_': [dah, dah, dah, dah, dah, dah, dah, dah, dah, dah, dah],
+        # '"': [dit, dit, dah, dah, dah, dah, dah, dah, dah, dah, dah],
+        # '$': [dah, dit, dah, dah, dah, dah, dah, dah, dah, dit, dah],
+        # '@': [dah, dit, dah, dah, dah, dah, dah, dah, dah, dah, dah, dah],
     }
     string = string.lower()
     output = []
