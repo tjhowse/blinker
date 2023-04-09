@@ -116,6 +116,7 @@ def bit_list_to_bytes(bit_list):
 def encode_string_to_c_bytes_array(string):
     bit_list, message = method1(string)
     byte_list = bit_list_to_bytes(bit_list)
+    print(f"{len(byte_list)/652*100:.2f}% of flash used.")
     if len(byte_list) > 652:
         raise Exception("Message is probably too long to fit in flash.")
     result = "uint8_t const sequence[] = {"
