@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="avada-html-layout-boxed avada-html-header-position-top ua-windows_nt ua-windows_nt-10 ua-windows_nt-10-0 ua-gecko ua-gecko-96 ua-gecko-96-0 ua-firefox ua-firefox-96 ua-firefox-96-0 ua-desktop ua-desktop-windows js no-applicationcache geolocation history postmessage websockets localstorage sessionstorage no-websqldatabase webworkers hashchange audio canvas canvastext video webgl cssgradients multiplebgs opacity rgba inlinesvg hsla supports svgclippaths smil no-touchevents fontface generatedcontent textshadow cssanimations backgroundsize borderimage borderradius boxshadow flexbox no-cssreflections csstransforms csstransforms3d csstransitions" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#" data-useragent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:96.0) Gecko/20100101 Firefox/96.0" lang="en-US"><head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Using Profiles – osPID</title>
+<link rel="dns-prefetch" href="http://www.google.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="osPID » Feed" href="https://ospid.com/blog/feed/">
+<link rel="alternate" type="application/rss+xml" title="osPID » Comments Feed" href="https://ospid.com/blog/comments/feed/">
+		
+		
+		
+		
+				
+		<meta property="og:title" content="Using Profiles">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="https://ospid.com/blog/guides/using-profiles/">
+		<meta property="og:site_name" content="osPID">
+		<meta property="og:description" content="The osPID can store and run profiles. Profiles are useful when you have more than 1 setpoint and for each setpoint you have different ramp and waiting time. A good example where profiles is needed is in SMT reflowing. By using profiles, you can have different curve (like for example lead-free reflow and">
+
+									<meta property="og:image" content="https://ospid.com/blog/wp-content/uploads/2016/02/Profiles.png">
+									<script type="text/javascript" async="" src="Using%20Profiles%20%E2%80%93%20osPID_files/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-YOM1VjUkAnOtLKpWHvk6KSrYAoLEkaoPuep5VFiDATRna5swsN03dxDH51fiq3/H"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/ospid.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.9"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="Using%20Profiles%20%E2%80%93%20osPID_files/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="bbp-default-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/bbpress.css" type="text/css" media="all">
+<link rel="stylesheet" id="avada-parent-stylesheet-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="avada-stylesheet-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/style_003.css" type="text/css" media="all">
+<!--[if IE]>
+<link rel='stylesheet' id='avada-IE-css'  href='http://ospid.com/blog/wp-content/themes/Avada/assets/css/ie.min.css?ver=6.2.3' type='text/css' media='all' />
+<style id='avada-IE-inline-css' type='text/css'>
+.avada-select-parent .select-arrow{background-color:#ffffff}
+.select-arrow{background-color:#ffffff}
+</style>
+<![endif]-->
+<link rel="stylesheet" id="fusion-dynamic-css-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/261be585aae9575044d62a76166adf47.css" type="text/css" media="all">
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/jquery.js"></script>
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/jquery-migrate.js"></script>
+<link rel="https://api.w.org/" href="https://ospid.com/blog/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ospid.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://ospid.com/blog/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.4.9">
+<link rel="canonical" href="https://ospid.com/blog/guides/using-profiles/">
+<link rel="shortlink" href="https://ospid.com/blog/?p=4659">
+<link rel="alternate" type="application/json+oembed" href="https://ospid.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://ospid.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;format=xml">
+<style type="text/css" id="css-fb-visibility">@media screen and (max-width: 640px){body:not(.fusion-builder-ui-wireframe) .fusion-no-small-visibility{display:none !important;}}@media screen and (min-width: 641px) and (max-width: 1024px){body:not(.fusion-builder-ui-wireframe) .fusion-no-medium-visibility{display:none !important;}}@media screen and (min-width: 1025px){body:not(.fusion-builder-ui-wireframe) .fusion-no-large-visibility{display:none !important;}}</style><style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>		<script type="text/javascript">
+			var doc = document.documentElement;
+			doc.setAttribute( 'data-useragent', navigator.userAgent );
+		</script>
+		
+	<style type="text/css">/* Chart.js */
+@-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
+
+<body class="avada_portfolio-template-default single single-avada_portfolio postid-4659 single-format-standard fusion-image-hovers fusion-pagination-sizing fusion-button_size-large fusion-button_type-flat fusion-button_span-no avada-image-rollover-circle-yes avada-image-rollover-yes avada-image-rollover-direction-left fusion-has-button-gradient fusion-body ltr fusion-sticky-header no-tablet-sticky-header no-mobile-sticky-header no-mobile-slidingbar avada-has-rev-slider-styles fusion-disable-outline fusion-sub-menu-fade mobile-logo-pos-left layout-boxed-mode avada-has-boxed-modal-shadow-none layout-scroll-offset-full avada-has-zero-margin-offset-top fusion-top-header menu-text-align-right mobile-menu-design-modern fusion-show-pagination-text fusion-header-layout-v5 avada-responsive avada-footer-fx-sticky avada-menu-highlight-style-bar fusion-search-form-clean fusion-main-menu-search-overlay fusion-avatar-circle avada-sticky-shrinkage avada-dropdown-styles avada-blog-layout-large avada-blog-archive-layout-large avada-header-shadow-yes avada-menu-icon-position-left avada-has-megamenu-shadow avada-has-mainmenu-dropdown-divider avada-has-main-nav-search-icon avada-has-breadcrumb-mobile-hidden avada-has-titlebar-bar_and_content avada-has-slidingbar-widgets avada-has-slidingbar-position-top avada-slidingbar-toggle-style-triangle avada-has-slidingbar-sticky avada-has-pagination-padding avada-flyout-menu-direction-fade avada-ec-views-v1 do-animate fusion-no-touch" style="--viewportWidth: 1920; height: auto;">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<div id="boxed-wrapper" style="height: auto;">
+		<div class="fusion-sides-frame"></div>
+		<div id="wrapper" class="fusion-wrapper">
+			<div id="home" style="position:relative;top:-1px;"></div>
+			
+			<header class="fusion-header-wrapper fusion-header-shadow fusion-is-sticky">
+				<div class="fusion-header-v5 fusion-logo-alignment fusion-logo-left fusion-sticky-menu- fusion-sticky-logo- fusion-mobile-logo- fusion-sticky-menu-only fusion-header-menu-align-right fusion-mobile-menu-design-modern">
+					
+<div class="fusion-secondary-header">
+	<div class="fusion-row">
+							<div class="fusion-alignright">
+				<nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu"></nav>			</div>
+			</div>
+</div>
+<div class="fusion-header-sticky-height"></div>
+<div class="fusion-sticky-header-wrapper" style="height: 254px;"> <!-- start fusion sticky header wrapper -->
+	<div class="fusion-header">
+		<div class="fusion-row">
+							<div class="fusion-logo" data-margin-top="31px" data-margin-bottom="31px" data-margin-left="0px" data-margin-right="0px">
+			<a class="fusion-logo-link" href="https://ospid.com/blog/">
+
+						<!-- standard logo -->
+			<img src="Using%20Profiles%20%E2%80%93%20osPID_files/logo.png" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/logo.png 1x" alt="osPID Logo" data-retina_logo_url="" class="fusion-standard-logo" width="300" height="150">
+
+			
+					</a>
+		</div>
+								<div class="fusion-mobile-menu-icons">
+							<a href="#" class="fusion-icon fusion-icon-bars" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu-menu"></a>
+		
+		
+		
+			</div>
+			
+					</div>
+	</div>
+	<div class="fusion-secondary-main-menu" style="top: 0px; max-width: 1100px;">
+		<div class="fusion-row">
+			<nav class="fusion-main-menu" aria-label="Main Menu"><div class="fusion-overlay-search" style="max-width: 765px;">		<form role="search" class="searchform fusion-search-form  fusion-search-form-clean" method="get" action="https://ospid.com/blog/">
+			<div class="fusion-search-form-content">
+
+				
+				<div class="fusion-search-field search-field">
+					<label><span class="screen-reader-text">Search for:</span>
+													<input type="search" name="s" class="s" placeholder="Search..." required="" aria-required="true" aria-label="">
+											</label>
+				</div>
+				<div class="fusion-search-button search-button">
+					<input type="submit" class="fusion-search-submit searchsubmit" value="">
+									</div>
+
+				
+			</div>
+
+
+			
+		</form>
+		<div class="fusion-search-spacer"></div><a href="#" class="fusion-close-search"></a></div><ul id="menu-menu" class="fusion-menu"><li id="menu-item-5" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5" data-item-id="5"><a href="http://www.ospid.com/blog" class="fusion-bar-highlight"><span class="menu-text">Blog</span></a></li><li id="menu-item-262" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-262" data-item-id="262"><a href="http://www.ospid.com/blog/forums" class="fusion-bar-highlight"><span class="menu-text">Forum</span></a></li><li id="menu-item-443" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-443" data-item-id="443"><a href="https://ospid.com/blog/what-is-pid-control/" class="fusion-bar-highlight"><span class="menu-text">What is PID Control?</span></a></li><li id="menu-item-4685" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4685" data-item-id="4685"><a href="https://ospid.com/blog/docs/" class="fusion-bar-highlight"><span class="menu-text">Docs</span></a></li><li id="menu-item-4686" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4686" data-item-id="4686"><a href="https://ospid.com/blog/download/" class="fusion-bar-highlight"><span class="menu-text">Download</span></a></li><li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78" data-item-id="78"><a href="https://ospid.com/blog/buy/" class="fusion-bar-highlight"><span class="menu-text">Buy</span></a></li><li id="menu-item-442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-442" data-item-id="442"><a href="https://ospid.com/blog/about/" class="fusion-bar-highlight"><span class="menu-text">About</span></a></li><li id="menu-item-445" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-445" data-item-id="445"><a href="https://ospid.com/blog/contact/" class="fusion-bar-highlight"><span class="menu-text">Contact</span></a></li><li class="fusion-custom-menu-item fusion-main-menu-search fusion-search-overlay"><a class="fusion-main-menu-icon fusion-bar-highlight" href="#" aria-label="Search" data-title="Search" title="Search"></a></li></ul></nav>
+<nav class="fusion-mobile-nav-holder fusion-mobile-menu-text-align-left" aria-label="Main Menu Mobile" style="display: none;"><ul id="mobile-menu-menu" class="fusion-menu"><li id="mobile-menu-item-5" class="fusion-mobile-nav-item" data-item-id="5" style=""><a href="http://www.ospid.com/blog" class="fusion-bar-highlight"><span class="menu-text">Blog</span></a></li><li id="mobile-menu-item-262" class="fusion-mobile-nav-item" data-item-id="262" style=""><a href="http://www.ospid.com/blog/forums" class="fusion-bar-highlight"><span class="menu-text">Forum</span></a></li><li id="mobile-menu-item-443" class="fusion-mobile-nav-item" data-item-id="443" style=""><a href="https://ospid.com/blog/what-is-pid-control/" class="fusion-bar-highlight"><span class="menu-text">What is PID Control?</span></a></li><li id="mobile-menu-item-4685" class="fusion-mobile-nav-item" data-item-id="4685" style=""><a href="https://ospid.com/blog/docs/" class="fusion-bar-highlight"><span class="menu-text">Docs</span></a></li><li id="mobile-menu-item-4686" class="fusion-mobile-nav-item" data-item-id="4686" style=""><a href="https://ospid.com/blog/download/" class="fusion-bar-highlight"><span class="menu-text">Download</span></a></li><li id="mobile-menu-item-78" class="fusion-mobile-nav-item" data-item-id="78" style=""><a href="https://ospid.com/blog/buy/" class="fusion-bar-highlight"><span class="menu-text">Buy</span></a></li><li id="mobile-menu-item-442" class="fusion-mobile-nav-item" data-item-id="442" style=""><a href="https://ospid.com/blog/about/" class="fusion-bar-highlight"><span class="menu-text">About</span></a></li><li id="mobile-menu-item-445" class="fusion-mobile-nav-item" data-item-id="445" style=""><a href="https://ospid.com/blog/contact/" class="fusion-bar-highlight"><span class="menu-text">Contact</span></a></li></ul></nav>
+
+					</div>
+	</div>
+</div> <!-- end fusion sticky header wrapper -->
+				</div>
+				<div class="fusion-clearfix"></div>
+			</header>
+						
+			
+		<div id="sliders-container">
+					</div>
+				
+			
+			<div class="avada-page-titlebar-wrapper">
+				<div class="fusion-page-title-bar fusion-page-title-bar-none fusion-page-title-bar-left">
+	<div class="fusion-page-title-row">
+		<div class="fusion-page-title-wrapper">
+			<div class="fusion-page-title-captions">
+
+																			<h1 class="entry-title fusion-responsive-typography-calculated" style="--fontSize: 18; line-height: 0; --minFontSize: 18;" data-fontsize="18" data-lineheight="0px">Using Profiles</h1>
+
+									
+				
+			</div>
+
+												<div class="fusion-page-title-secondary">
+						<div class="fusion-breadcrumbs"><span class="fusion-breadcrumb-item"><a href="https://ospid.com/blog" class="fusion-breadcrumb-link"><span>Home</span></a></span><span class="fusion-breadcrumb-sep">/</span><span class="fusion-breadcrumb-item"><a href="https://ospid.com/blog/docs%20category/general/" class="fusion-breadcrumb-link"><span>General</span></a></span><span class="fusion-breadcrumb-sep">/</span><span class="fusion-breadcrumb-item"><span class="breadcrumb-leaf">Using Profiles</span></span></div>					</div>
+							
+		</div>
+	</div>
+</div>
+			</div>
+
+						<main id="main" class="clearfix ">
+				<div class="fusion-row" style="">
+<div id="content" class="portfolio-full" style="width: 100%;">
+	
+			<div class="single-navigation clearfix">
+			
+											<a href="https://ospid.com/blog/guides/temperature-input-card-v1-2-bug-fix/" rel="prev">Previous</a>
+			
+			
+					</div>
+	
+					<article id="post-4659" class="post-4659 avada_portfolio type-avada_portfolio status-publish format-standard has-post-thumbnail hentry portfolio_category-general">
+
+							
+						<div class="project-content">
+				<span class="entry-title rich-snippet-hidden">Using Profiles</span><span class="vcard rich-snippet-hidden"><span class="fn"><a href="https://ospid.com/blog/author/sparky/" title="Posts by rocketscream" rel="author">rocketscream</a></span></span><span class="updated rich-snippet-hidden">2018-02-13T06:06:02+00:00</span>				<div class="project-description post-content" style=" width:100%;">
+											<h3 style="display: none; --fontSize: 16; line-height: 1.5; --minFontSize: 16;" data-fontsize="16" data-lineheight="24px" class="fusion-responsive-typography-calculated">Project Description</h3>										<div class="fusion-fullwidth fullwidth-box fusion-builder-row-1 nonhundred-percent-fullwidth non-hundred-percent-height-scrolling" style="background-color: rgba(255,255,255,0);background-position: left top;background-repeat: no-repeat;padding-top:20px;padding-right:0px;padding-bottom:20px;padding-left:0px;border-top-width:0px;border-bottom-width:0px;border-color:#eae9e9;border-top-style:solid;border-bottom-style:solid;"><div class="fusion-builder-row fusion-row "></div></div><div class="fusion-fullwidth fullwidth-box fusion-builder-row-2 hundred-percent-fullwidth non-hundred-percent-height-scrolling" style="background-color: rgba(255,255,255,0);background-position: center center;background-repeat: no-repeat;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-bottom-width:0px;border-color:#eae9e9;border-top-style:solid;border-bottom-style:solid;"><div class="fusion-builder-row fusion-row "><div class="fusion-layout-column fusion_builder_column fusion_builder_column_1_1 fusion-builder-column-0 fusion-one-full fusion-column-first fusion-column-last fusion-column-no-min-height 1_1" style="margin-top:0px;margin-bottom:0px;"><div class="fusion-column-wrapper" style="background-position: left top; background-repeat: no-repeat; background-size: cover; height: auto;" data-bg-url=""><div class="fusion-tabs fusion-tabs-1 clean vertical-tabs icon-position-left"><style type="text/css">#wrapper .fusion-tabs.fusion-tabs-1.clean .nav-tabs li a.tab-link{border-color:#ebeaea;}.fusion-tabs.fusion-tabs-1 .nav-tabs li a.tab-link{background-color:#ebeaea;}.fusion-tabs.fusion-tabs-1 .nav-tabs li.active a.tab-link,.fusion-tabs.fusion-tabs-1 .nav-tabs li.active a.tab-link:hover,.fusion-tabs.fusion-tabs-1 .nav-tabs li.active a.tab-link:focus{background-color:#ffffff;}.fusion-tabs.fusion-tabs-1 .nav-tabs li a:hover{background-color:#ffffff;border-top-color:#ffffff;}.fusion-tabs.fusion-tabs-1 .tab-pane{background-color:#ffffff;}.fusion-tabs.fusion-tabs-1 .nav,.fusion-tabs.fusion-tabs-1 .nav-tabs,.fusion-tabs.fusion-tabs-1 .tab-content .tab-pane{border-color:#ebeaea;}</style><div class="nav"><ul class="nav-tabs"><li class=""><a class="tab-link" data-toggle="tab" id="fusion-tab-overview" href="#tab-50b85acaf4257918e5c"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-list-alt" style="font-size:13px;"></i>Overview</h4></a></li><li class="active"><a class="tab-link" data-toggle="tab" id="fusion-tab-syntax" href="#tab-06713b9bb70951d116a"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-code" style="font-size:13px;"></i>Syntax</h4></a></li><li class=""><a class="tab-link" data-toggle="tab" id="fusion-tab-preparingprofilefiles" href="#tab-dc103ffa1888afb6d48"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-area-chart" style="font-size:13px;"></i>Preparing Profile Files</h4></a></li><li><a class="tab-link" data-toggle="tab" id="fusion-tab-loadingprofiles" href="#tab-abda10076b7e676e3f1"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-usb" style="font-size:13px;"></i>Loading Profiles</h4></a></li></ul></div><div class="tab-content"><div class="nav fusion-mobile-tab-nav"><ul class="nav-tabs"><li class=""><a class="tab-link" data-toggle="tab" id="mobile-fusion-tab-overview" href="#tab-50b85acaf4257918e5c"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-list-alt" style="font-size:13px;"></i>Overview</h4></a></li></ul></div><div class="tab-pane fade fusion-clearfix" id="tab-50b85acaf4257918e5c" style="min-height: 208px;">The
+ osPID can store and run profiles. Profiles are useful when you have 
+more than 1 setpoint and for each setpoint you have different ramp and 
+waiting time. A good example where profiles is needed is in SMT 
+reflowing. By using profiles, you can have different curve (like for 
+example lead-free reflow and leaded reflow profiles) and load them to 
+run on the osPID depending on your need.<p></p>
+<p><img class="aligncenter size-full wp-image-4661" src="Using%20Profiles%20%E2%80%93%20osPID_files/Profiles.png" alt="Profiles" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/Profiles-220x161.htm 220w, Using%20Profiles%20%E2%80%93%20osPID_files/Profiles-300x218.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/Profiles-768x559.htm 768w, Using%20Profiles%20%E2%80%93%20osPID_files/Profiles.htm 866w" sizes="(max-width: 866px) 100vw, 866px" width="866" height="630"></p>
+<p>Profiles can be constructed using a simple human readable text file 
+and send to the osPID unit to be stored on-board and run using the 
+on-board user interface.</p></div><div class="nav fusion-mobile-tab-nav"><ul class="nav-tabs"><li class="active"><a class="tab-link" data-toggle="tab" id="mobile-fusion-tab-syntax" href="#tab-06713b9bb70951d116a"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-code" style="font-size:13px;"></i>Syntax</h4></a></li></ul></div><div class="tab-pane fade fusion-clearfix active in" id="tab-06713b9bb70951d116a" style="min-height: 208px;">Profiles can be constructed using simple human readable text in the form of:<p></p>
+<p style="text-align: center;">TYPE OF OPERATION, SETPOINT, DURATION</p>
+<div class="fusion-table table-2">
+<table width="100%">
+<thead>
+<tr>
+<th colspan="2">Item</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3">Type of operation</td>
+<td>Ramp, 1</td>
+<td>Ramp towards setpoint within a specific duration. Ramp operation can
+ be a negative or positive slope. The duration set will define the rate 
+of increase/decrease.&nbsp;Ramp operation is specified using the value 
+“1”.</td>
+</tr>
+<tr>
+<td>Wait, 2</td>
+<td>Wait operation usually follows after a ramp operation. Wait operation is specified using the value “2” with zero duration.</td>
+</tr>
+<tr>
+<td>Step, 3</td>
+<td>An instantaneous increase or decrease of setpoint without any 
+specific duration. Step operation is specified using the value “3” with 
+zero duration.</td>
+</tr>
+<tr>
+<td colspan="2">Setpoint</td>
+<td>Desired value for the either a ramp or step operation. Setpoint must be set as zero for wait operation and buzzer usage.</td>
+</tr>
+<tr>
+<td colspan="2">Duration</td>
+<td>Duration in seconds for a specific operation. For ramp operation, 
+this reflects the rate of the ramp process. For wait operation, it 
+reflects how long it shall stay on the current setpoint. Duration must 
+be set as zero for step operation, wait operation and buzzer usage.</td>
+</tr>
+<tr>
+<td colspan="2">On-board buzzer</td>
+<td>The on-board buzzer can be used as an indication of profile 
+completion or anywhere within the profile. Buzzer usage is specified 
+using the value “127” with a non-zero duration.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>&nbsp;</p>
+<p>An example of a profile file:</p>
+<p>RoHS //first row is Profile Name<br>
+3, 30, 0 //Step Setpoint to 30, wait 0 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+1, 150, 60 //ramp setpoint to 150 over the course of 60 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+1, 200, 120 //ramp setpoint to 200 over the course of 120 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+1, 245, 60 //ramp setpoint to 245 over the course of 60 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+1, 218, 30 //ramp setpoint to 218 over the course of 30 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+1, 50, 150 //ramp setpoint to 50 over the course of 150 seconds<br>
+2, 0, 0 //Wait for PID Input to cross setpoint<br>
+127, 0, 5 //buzz for 5 seconds</p></div><div class="nav fusion-mobile-tab-nav"><ul class="nav-tabs"><li class=""><a class="tab-link" data-toggle="tab" id="mobile-fusion-tab-preparingprofilefiles" href="#tab-dc103ffa1888afb6d48"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-area-chart" style="font-size:13px;"></i>Preparing Profile Files</h4></a></li></ul></div><div class="tab-pane fade fusion-clearfix" id="tab-dc103ffa1888afb6d48" style="min-height: 208px;">Profile
+ file must be saved in .txt format and stored in locations that depends 
+on either you are using a precompiled version of the frontend software 
+or running the frontend software from the Processing IDE itself.<p></p>
+<p>If you are running the precompiled version of the frontend, the 
+profile files must be stored within the profile folder residing within 
+the compiled frontend folder:</p>
+<p><img class="aligncenter size-full wp-image-4673" src="Using%20Profiles%20%E2%80%93%20osPID_files/CompiledFrontendProfileStorage.png" alt="Compiled Frontend Profile Storage" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/CompiledFrontendProfileStorage-300x262.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/CompiledFrontendProfileStorage.htm 533w" sizes="(max-width: 533px) 100vw, 533px" width="533" height="466"></p>
+<p>But, if you are running the frontend software through the Processing 
+IDE (not compiled version), the profile files must be stored within the 
+profile folder residing within the frontend software files folder:</p>
+<p><img class="aligncenter size-full wp-image-4674" src="Using%20Profiles%20%E2%80%93%20osPID_files/NotCompiledFrontendProfileStorage.png" alt="Not Compiled Frontend Profile Storage" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/NotCompiledFrontendProfileStorage-300x262.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/NotCompiledFrontendProfileStorage.htm 534w" sizes="(max-width: 534px) 100vw, 534px" width="534" height="466"></p>
+<p>Within the profile folder, here’s an example how 2 different profiles are stored:</p>
+<p><img class="aligncenter size-full wp-image-4675" src="Using%20Profiles%20%E2%80%93%20osPID_files/ProfilesStorage.png" alt="Profiles Storage" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/ProfilesStorage-300x118.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/ProfilesStorage.htm 574w" sizes="(max-width: 574px) 100vw, 574px" width="574" height="226"></p></div><div class="nav fusion-mobile-tab-nav"><ul class="nav-tabs"><li><a class="tab-link" data-toggle="tab" id="mobile-fusion-tab-loadingprofiles" href="#tab-abda10076b7e676e3f1"><h4 class="fusion-tab-heading fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px"><i class="fontawesome-icon fa fa-usb" style="font-size:13px;"></i>Loading Profiles</h4></a></li></ul></div><div class="tab-pane fade fusion-clearfix" id="tab-abda10076b7e676e3f1" style="min-height: 208px;">Profiles
+ can be loaded on the osPID kit unit through the frontend software. Once
+ loaded, the profile is available and can be selected for use through 
+the on-board UI.<p></p>
+<p><img class="aligncenter size-full wp-image-4678" src="Using%20Profiles%20%E2%80%93%20osPID_files/LoadingProfile.png" alt="Loading Profile" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/LoadingProfile-220x161.htm 220w, Using%20Profiles%20%E2%80%93%20osPID_files/LoadingProfile-300x218.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/LoadingProfile-768x558.htm 768w, Using%20Profiles%20%E2%80%93%20osPID_files/LoadingProfile.htm 865w" sizes="(max-width: 865px) 100vw, 865px" width="865" height="629"></p>
+<p>&nbsp;</p>
+<p><img class="aligncenter size-full wp-image-4679" src="Using%20Profiles%20%E2%80%93%20osPID_files/ProfileOnUI.jpg" alt="Profile On UI" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/ProfileOnUI-300x201.htm 300w, Using%20Profiles%20%E2%80%93%20osPID_files/ProfileOnUI.htm 600w" sizes="(max-width: 600px) 100vw, 600px" width="600" height="402"></p>
+</div></div></div><div class="fusion-clearfix"></div></div></div></div></div>
+									</div>
+
+							</div>
+
+			<div class="portfolio-sep"></div>
+												<div class="fusion-sharing-box fusion-single-sharing-box share-box">
+		<h4 style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px" class="fusion-responsive-typography-calculated">Share This Story, Choose Your Platform!</h4>
+		<div class="fusion-social-networks"><div class="fusion-social-networks-wrapper"><a class="fusion-social-network-icon fusion-tooltip fusion-facebook fusion-icon-facebook" style="color:var(--sharing_social_links_icon_color);" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;t=Using%20Profiles" target="_blank" data-placement="top" data-title="facebook" data-toggle="tooltip" title="" data-original-title="facebook"><span class="screen-reader-text">facebook</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-twitter fusion-icon-twitter" style="color:var(--sharing_social_links_icon_color);" href="https://twitter.com/share?text=Using%20Profiles&amp;url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="twitter" data-toggle="tooltip" title="" data-original-title="twitter"><span class="screen-reader-text">twitter</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-linkedin fusion-icon-linkedin" style="color:var(--sharing_social_links_icon_color);" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;title=Using%20Profiles&amp;summary=The%20osPID%20can%20store%20and%20run%20profiles.%20Profiles%20are%20useful%20when%20you%20have%20more%20than%201%20setpoint%20and%20for%20each%20setpoint%20you%20have%20different%20ramp%20and%20waiting%20time.%20A%20good%20example%20where%20profiles%20is%20needed%20is%20in%20SMT%20reflowing.%20By%20using%20profiles%2C%20you%20can%20have%20differ" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="linkedin" data-toggle="tooltip" title="" data-original-title="linkedin"><span class="screen-reader-text">linkedin</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-reddit fusion-icon-reddit" style="color:var(--sharing_social_links_icon_color);" href="http://reddit.com/submit?url=https://ospid.com/blog/guides/using-profiles/&amp;title=Using%20Profiles" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="reddit" data-toggle="tooltip" title="" data-original-title="reddit"><span class="screen-reader-text">reddit</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-tumblr fusion-icon-tumblr" style="color:var(--sharing_social_links_icon_color);" href="http://www.tumblr.com/share/link?url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;name=Using%20Profiles&amp;description=The%20osPID%20can%20store%20and%20run%20profiles.%20Profiles%20are%20useful%20when%20you%20have%20more%20than%201%20setpoint%20and%20for%20each%20setpoint%20you%20have%20different%20ramp%20and%20waiting%20time.%20A%20good%20example%20where%20profiles%20is%20needed%20is%20in%20SMT%20reflowing.%20By%20using%20profiles%2C%20you%20can%20have%20different%20curve%20%28like%20for%20example%20lead-free%20reflow%20and" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="tumblr" data-toggle="tooltip" title="" data-original-title="tumblr"><span class="screen-reader-text">tumblr</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-pinterest fusion-icon-pinterest" style="color:var(--sharing_social_links_icon_color);" href="http://pinterest.com/pin/create/button/?url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;description=The%20osPID%20can%20store%20and%20run%20profiles.%20Profiles%20are%20useful%20when%20you%20have%20more%20than%201%20setpoint%20and%20for%20each%20setpoint%20you%20have%20different%20ramp%20and%20waiting%20time.%20A%20good%20example%20where%20profiles%20is%20needed%20is%20in%20SMT%20reflowing.%20By%20using%20profiles%2C%20you%20can%20have%20different%20curve%20%28like%20for%20example%20lead-free%20reflow%20and&amp;media=https%3A%2F%2Fospid.com%2Fblog%2Fwp-content%2Fuploads%2F2016%2F02%2FProfiles.png" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="pinterest" data-toggle="tooltip" title="" data-original-title="pinterest"><span class="screen-reader-text">pinterest</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-vk fusion-icon-vk" style="color:var(--sharing_social_links_icon_color);" href="http://vkontakte.ru/share.php?url=https%3A%2F%2Fospid.com%2Fblog%2Fguides%2Fusing-profiles%2F&amp;title=Using%20Profiles&amp;description=The%20osPID%20can%20store%20and%20run%20profiles.%20Profiles%20are%20useful%20when%20you%20have%20more%20than%201%20setpoint%20and%20for%20each%20setpoint%20you%20have%20different%20ramp%20and%20waiting%20time.%20A%20good%20example%20where%20profiles%20is%20needed%20is%20in%20SMT%20reflowing.%20By%20using%20profiles%2C%20you%20can%20have%20different%20curve%20%28like%20for%20example%20lead-free%20reflow%20and" target="_blank" rel="noopener noreferrer" data-placement="top" data-title="vk" data-toggle="tooltip" title="" data-original-title="vk"><span class="screen-reader-text">vk</span></a><a class="fusion-social-network-icon fusion-tooltip fusion-mail fusion-icon-mail fusion-last-social-icon" style="color:var(--sharing_social_links_icon_color);" href="mailto:?subject=Using%20Profiles&amp;body=https://ospid.com/blog/guides/using-profiles/" target="_self" rel="noopener noreferrer" data-placement="top" data-title="Email" data-toggle="tooltip" title="" data-original-title="Email"><span class="screen-reader-text">Email</span></a><div class="fusion-clearfix"></div></div></div>	</div>
+					<section class="related-posts single-related-posts">
+					<div class="fusion-title fusion-title-size-three sep-double sep-solid" style="margin-top:0px;margin-bottom:31px;">
+					<h3 class="title-heading-left fusion-responsive-typography-calculated" style="margin: 0px; --fontSize: 18; line-height: 1.5; --minFontSize: 18;" data-fontsize="18" data-lineheight="27px">
+						Related Projects					</h3>
+					<div class="title-sep-container">
+						<div class="title-sep sep-double sep-solid"></div>
+					</div>
+				</div>
+				
+	
+	
+	
+	
+				<div class="fusion-carousel" data-imagesize="fixed" data-metacontent="no" data-autoplay="no" data-touchscroll="no" data-columns="5" data-itemmargin="44px" data-itemwidth="180" data-scrollitems="">
+		<div class="fusion-carousel-positioner" style="margin-left: -44px;">
+			<div class="fusion-carousel-wrapper" style="display: block; text-align: start; float: none; position: relative; inset: auto; z-index: auto; width: 1084px; height: 18px; margin: 0px; overflow: hidden;"><ul class="fusion-carousel-holder" style="text-align: left; float: none; position: absolute; inset: auto auto auto 0px; margin: 0px; width: 3252px; height: 18px; line-height: 18px;">
+																							<li class="fusion-carousel-item" style="max-width: 300px; margin-left: 44px; width: 498px;">
+						<div class="fusion-carousel-item-wrapper" style="visibility: inherit;">
+							
+
+<div class="fusion-image-wrapper fusion-image-size-fixed" aria-haspopup="true">
+	
+	
+				<img src="Using%20Profiles%20%E2%80%93%20osPID_files/osPIDOnBoardUserInterface-500x383.htm" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/osPIDOnBoardUserInterface-500x383.htm 1x, Using%20Profiles%20%E2%80%93%20osPID_files/osPIDOnBoardUserInterface-500x3832x.htm 2x" alt="On-board UI" width="500" height="383">
+
+
+		<div class="fusion-rollover">
+	<div class="fusion-rollover-content">
+
+														<a class="fusion-rollover-link" href="https://ospid.com/blog/guides/on-board-ui/">On-board UI</a>
+			
+								
+				
+												<h4 class="fusion-rollover-title fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px">
+					<a class="fusion-rollover-title-link" href="https://ospid.com/blog/guides/on-board-ui/">
+						On-board UI					</a>
+				</h4>
+			
+								
+		
+				<a class="fusion-link-wrapper" href="https://ospid.com/blog/guides/on-board-ui/" aria-label="On-board UI"></a>
+	</div>
+</div>
+
+	
+</div>
+													</div><!-- fusion-carousel-item-wrapper -->
+					</li>
+																			<li class="fusion-carousel-item" style="max-width: 300px; margin-left: 44px; width: 498px;">
+						<div class="fusion-carousel-item-wrapper" style="visibility: inherit;">
+							
+
+<div class="fusion-image-wrapper fusion-image-size-fixed" aria-haspopup="true">
+	
+	
+				<img src="Using%20Profiles%20%E2%80%93%20osPID_files/osPIDCasingSideAssembly-500x383.htm" srcset="Using%20Profiles%20%E2%80%93%20osPID_files/osPIDCasingSideAssembly-500x383.htm 1x, Using%20Profiles%20%E2%80%93%20osPID_files/osPIDCasingSideAssembly-500x3832x.htm 2x" alt="Getting Started" width="500" height="383">
+
+
+		<div class="fusion-rollover">
+	<div class="fusion-rollover-content">
+
+														<a class="fusion-rollover-link" href="https://ospid.com/blog/guides/getting-started/">Getting Started</a>
+			
+								
+				
+												<h4 class="fusion-rollover-title fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px">
+					<a class="fusion-rollover-title-link" href="https://ospid.com/blog/guides/getting-started/">
+						Getting Started					</a>
+				</h4>
+			
+								
+		
+				<a class="fusion-link-wrapper" href="https://ospid.com/blog/guides/getting-started/" aria-label="Getting Started"></a>
+	</div>
+</div>
+
+	
+</div>
+													</div><!-- fusion-carousel-item-wrapper -->
+					</li>
+							</ul></div><!-- fusion-carousel-holder -->
+										<div class="fusion-carousel-nav" style="visibility: inherit;">
+					<span class="fusion-nav-prev hidden" style="margin-left: 44px; display: none;"></span>
+					<span class="fusion-nav-next hidden" style="display: none; left: 1054px;"></span>
+				</div>
+			
+		</div><!-- fusion-carousel-positioner -->
+	</div><!-- fusion-carousel -->
+</section><!-- related-posts -->
+
+
+																	</article>
+	</div>
+						
+					</div>  <!-- fusion-row -->
+				</main>  <!-- #main -->
+				
+				
+								
+					
+		<div class="fusion-footer">
+					
+	<footer class="fusion-footer-widget-area fusion-widget-area">
+		<div class="fusion-row">
+			<div class="fusion-columns fusion-columns-3 fusion-widget-area">
+				
+																									<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+							<section id="pages-2" class="fusion-footer-widget-column widget widget_pages"><h4 class="widget-title fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px">Info</h4>		<ul>
+			<li class="page_item page-item-7"><a href="https://ospid.com/blog/about/">About</a></li>
+<li class="page_item page-item-40"><a href="https://ospid.com/blog/contact/">Contact</a></li>
+<li class="page_item page-item-4735"><a href="https://ospid.com/blog/lost-password/">Lost Password</a></li>
+<li class="page_item page-item-4732"><a href="https://ospid.com/blog/register/">Register</a></li>
+<li class="page_item page-item-11"><a href="https://ospid.com/blog/what-is-pid-control/">What is PID Control?</a></li>
+		</ul>
+			<div style="clear:both;"></div></section>																					</div>
+																										<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+							<section id="text-2" class="fusion-footer-widget-column widget widget_text"><h4 class="widget-title fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1.54; --minFontSize: 13;" data-fontsize="13" data-lineheight="20.0167px">Resources</h4>			<div class="textwidget"><ul>
+<li><a href="https://ospid.com/blog/docs/">Docs</a></li>
+<li><a href="http://www.ospid.com/blog/download/">Download</a></li>
+</ul>
+</div>
+		<div style="clear:both;"></div></section>																					</div>
+																										<div class="fusion-column fusion-column-last col-lg-4 col-md-4 col-sm-4">
+							<section id="text-3" class="fusion-footer-widget-column widget widget_text">			<div class="textwidget"><img src="Using%20Profiles%20%E2%80%93%20osPID_files/oshw-logo-100-px.png" alt="OSHW">
+<img src="Using%20Profiles%20%E2%80%93%20osPID_files/gplv3-127x51.png" alt="GPLV3">
+<img src="Using%20Profiles%20%E2%80%93%20osPID_files/88x31.png" alt="CCBYSA"></div>
+		<div style="clear:both;"></div></section>																					</div>
+																																				
+				<div class="fusion-clearfix"></div>
+			</div> <!-- fusion-columns -->
+		</div> <!-- fusion-row -->
+	</footer> <!-- fusion-footer-widget-area -->
+
+	
+	<footer id="footer" class="fusion-footer-copyright-area">
+		<div class="fusion-row">
+			<div class="fusion-copyright-content">
+
+				<div class="fusion-copyright-notice" style="padding-bottom: 0px;">
+		<div>
+		Copyright 2016 osPID | All Rights Reserved	</div>
+</div>
+<div class="fusion-social-links-footer" style="display: none;">
+	</div>
+
+			</div> <!-- fusion-fusion-copyright-content -->
+		</div> <!-- fusion-row -->
+	</footer> <!-- #footer -->
+		</div> <!-- fusion-footer -->
+
+		
+					<div class="fusion-sliding-bar-wrapper">
+								<div id="slidingbar-area" class="slidingbar-area fusion-sliding-bar-area fusion-widget-area fusion-sliding-bar-position-top fusion-sliding-bar-text-align-left fusion-sliding-bar-sticky fusion-sliding-bar-toggle-triangle" data-breakpoint="800" data-toggle="triangle">
+					<div class="fusion-sb-toggle-wrapper">
+				<a class="fusion-sb-toggle" href="#"><span class="screen-reader-text">Toggle Sliding Bar Area</span></a>
+			</div>
+		
+		<div id="slidingbar" class="fusion-sliding-bar">
+						<div class="fusion-row">
+								<div class="fusion-columns row fusion-columns-2 columns columns-2">
+
+																														<div class="fusion-column col-lg-6 col-md-6 col-sm-6">
+							<section id="bbp_login_widget-2" class="fusion-slidingbar-widget-column widget bbp_widget_login"><h4 class="widget-title fusion-responsive-typography-calculated" style="--fontSize: 13; line-height: 1; --minFontSize: 13;" data-fontsize="13" data-lineheight="13px">Login</h4>
+			<form method="post" action="https://ospid.com/blog/wp-login.php" class="bbp-login-form" data-bitwarden-watching="1">
+				<fieldset class="bbp-form">
+					<legend>Log In</legend>
+
+					<div class="bbp-username">
+						<label for="user_login">Username: </label>
+						<input type="text" name="log" size="20" maxlength="100" id="user_login" autocomplete="off">
+					</div>
+
+					<div class="bbp-password">
+						<label for="user_pass">Password: </label>
+						<input type="password" name="pwd" value="" size="20" id="user_pass" autocomplete="off">
+					</div>
+
+					<div class="bbp-remember-me">
+						<input type="checkbox" name="rememberme" value="forever" id="rememberme">
+						<label for="rememberme">Keep me signed in</label>
+					</div>
+
+					
+					<div class="bbp-submit-wrapper">
+
+						<button type="submit" name="user-submit" id="user-submit" class="button submit user-submit">Log In</button>
+
+						
+	<input type="hidden" name="user-cookie" value="1">
+
+	<input type="hidden" id="bbp_redirect_to" name="redirect_to" value="http://ospid.com/blog/guides/using-profiles/"><input type="hidden" id="_wpnonce" name="_wpnonce" value="f4237e462a"><input type="hidden" name="_wp_http_referer" value="/blog/guides/using-profiles/">
+					</div>
+
+					
+						<div class="bbp-login-links">
+
+							
+								<a href="http://www.ospid.com/blog/register" title="Register" class="bbp-register-link">Register</a>
+
+							
+							
+								<a href="https://ospid.com/blog/lost-password/" title="Lost Password" class="bbp-lostpass-link">Lost Password</a>
+
+							
+						</div>
+
+					
+				</fieldset>
+			</form>
+
+		<div style="clear:both;"></div></section>																						</div>
+																															<div class="fusion-column col-lg-6 col-md-6 col-sm-6">
+														</div>
+																																																												<div class="fusion-clearfix"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+						</div>
+
+												</div> <!-- wrapper -->
+		</div> <!-- #boxed-wrapper -->
+		<div class="fusion-top-frame"></div>
+		<div class="fusion-bottom-frame"></div>
+		<div class="fusion-boxed-shadow"></div>
+		<a class="fusion-one-page-text-link fusion-page-load-link"></a>
+
+		<div class="avada-footer-scripts">
+						<script src="Using%20Profiles%20%E2%80%93%20osPID_files/api.js"></script>
+			<script type="text/javascript">
+				( function( grecaptcha ) {
+
+					var anr_onloadCallback = function() {
+						grecaptcha.execute(
+							'6LejKPwUAAAAAJ1hEiN0YrWzBt90hf4apz2NUhNK',
+							{ action: 'advanced_nocaptcha_recaptcha' }
+						).then( function( token ) {
+							for ( var i = 0; i < document.forms.length; i++ ) {
+								var form = document.forms[i];
+								var captcha = form.querySelector( 'input[name="g-recaptcha-response"]' );
+								if ( null === captcha )
+									continue;
+
+								captcha.value = token;
+							}
+						});
+					};
+
+					grecaptcha.ready( anr_onloadCallback );
+
+					document.addEventListener( 'wpcf7submit', anr_onloadCallback, false );
+					if ( typeof jQuery !== 'undefined' ) {
+						//Woocommerce
+						jQuery( document.body ).on( 'checkout_error', anr_onloadCallback );
+					}
+					//token is valid for 2 minutes, So get new token every after 1 minutes 50 seconds
+					setInterval(anr_onloadCallback, 110000);
+
+				} )( grecaptcha );
+			</script>
+			<link rel="stylesheet" id="wp-block-library-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/style_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-theme-css" href="Using%20Profiles%20%E2%80%93%20osPID_files/theme.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/ospid.com\/blog\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/scripts.js"></script>
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/api.htm"></script>
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/2243554da99db13412a754c459c0573d.js"></script>
+<script type="text/javascript" src="Using%20Profiles%20%E2%80%93%20osPID_files/wp-embed.js"></script>
+<script type="text/javascript">
+( function( sitekey, actions ) {
+
+	document.addEventListener( 'DOMContentLoaded', function( event ) {
+		var wpcf7recaptcha = {
+
+			execute: function( action ) {
+				grecaptcha.execute(
+					sitekey,
+					{ action: action }
+				).then( function( token ) {
+					var event = new CustomEvent( 'wpcf7grecaptchaexecuted', {
+						detail: {
+							action: action,
+							token: token,
+						},
+					} );
+
+					document.dispatchEvent( event );
+				} );
+			},
+
+			executeOnHomepage: function() {
+				wpcf7recaptcha.execute( actions[ 'homepage' ] );
+			},
+
+			executeOnContactform: function() {
+				wpcf7recaptcha.execute( actions[ 'contactform' ] );
+			},
+
+		};
+
+		grecaptcha.ready(
+			wpcf7recaptcha.executeOnHomepage
+		);
+
+		document.addEventListener( 'change',
+			wpcf7recaptcha.executeOnContactform, false
+		);
+
+		document.addEventListener( 'wpcf7submit',
+			wpcf7recaptcha.executeOnHomepage, false
+		);
+
+	} );
+
+	document.addEventListener( 'wpcf7grecaptchaexecuted', function( event ) {
+		var fields = document.querySelectorAll(
+			"form.wpcf7-form input[name='g-recaptcha-response']"
+		);
+
+		for ( var i = 0; i < fields.length; i++ ) {
+			var field = fields[ i ];
+			field.setAttribute( 'value', event.detail.token );
+		}
+	} );
+
+} )(
+	'6LfvYyETAAAAAKTYdiK4D5Vo3M9DXj_KCsfuXFgK',
+	{"homepage":"homepage","contactform":"contactform"}
+);
+</script>
+				<script type="text/javascript">
+				jQuery( document ).ready( function() {
+					var ajaxurl = 'https://ospid.com/blog/wp-admin/admin-ajax.php';
+					if ( 0 < jQuery( '.fusion-login-nonce' ).length ) {
+						jQuery.get( ajaxurl, { 'action': 'fusion_login_nonce' }, function( response ) {
+							jQuery( '.fusion-login-nonce' ).html( response );
+						});
+					}
+				});
+				</script>
+				<script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https:\/\/ospid.com\/blog"},{"@type":"ListItem","position":2,"name":"General","item":"https:\/\/ospid.com\/blog\/docs category\/general\/"}]}</script>		</div>
+	
+
+<div class="to-top-container to-top-right"><a href="#" id="toTop" style="display: inline;"><span id="toTopHover"></span><span class="screen-reader-text">Go to Top</span></a></div><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s ease 0s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" src="Using%20Profiles%20%E2%80%93%20osPID_files/anchor.htm" role="presentation" name="a-uh81s6l9xn70" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" width="256" height="60" frameborder="0"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">03AGdBq24QNWvJ2gP1I7PH1oWHHKJ01E0RfLjqxPx74sIvU-PGAa6UK4d8agXivJ6NqJuqtPdtdaeDc8ykic1xhQ5qs43aDmwB04GaaLB-UCr3givJ8aBZ4OT1DkvcPS8qfJpuFPN0pzcFQAi5pUNJONCmu8T8ZnLv17XOdjkA3Lvimdk7SJZjmbnq8kFX_CKbh0lkSo-gDryGgMjhYEriDmaGC4fSyzIikgt3Zn46eOjH912lrw08b5JXXFqE43Q3gznnvy2hM5mX7TLxwIwnFanS6SU8obKNMMdNxmNHZyHzI6E5Yzfxzgjy8RQuOOGuMx6a-ggUuPHACNb1BoXmmeIEcykXOOk-Qs3GZSw1D1W4DAQZg_3QyIR51OIoUUPukyRF4fmJSwj0zoAGE1aiupc41BWvhnczpMKTpQQvWpjN85Z2beS2JeInqn_tQRAahwI4juUTTnkaHaWYVlE4KrxpUk6coMkzpQ</textarea></div><iframe style="display: none;"></iframe></div></body></html>
