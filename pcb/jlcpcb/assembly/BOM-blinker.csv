@@ -1,16 +1,10 @@
 Comment,Designator,Footprint,LCSC
 ATtiny10-TS,U1,SOT-23-6,C128438
-D_Schottky,D1,D_SOD-323,C22623
+D_Schottky,D1,D_SOD-323,C191023
 LED,D3,LED_0603_1608Metric,C2286
 220,R1,R_0603_1608Metric,C22962
-D_Zener,D2,D_SOD-123,C96629
 C_Polarized,C2,CP_Radial_D16.0mm_P7.50mm,
 ISP,J1,AVRISP_6PAD,
-C_Polarized,C3,CP_Radial_D16.0mm_P7.50mm,
 Jumper_2_Open,JP1,SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.5mm,
 Solar_Cell,SC1,PinHeader_1x02_P2.54mm_Vertical,
 C_Polarized,C1,CP_Radial_D16.0mm_P7.50mm,
-C_Polarized,C4,CP_Radial_D16.0mm_P7.50mm,
-C_Polarized,C5,CP_Radial_D16.0mm_P7.50mm,
-C_Polarized,C6,CP_Radial_D16.0mm_P7.50mm,
-LED,D4,PinHeader_1x02_P2.54mm_Vertical,

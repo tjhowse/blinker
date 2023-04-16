@@ -12,3 +12,19 @@ Code: Python and C.
 
 
 Build journal/docs: https://wiki.tjhowse.com/doku.php?id=projects:blinker:overview
+
+## Component rev history
+
+Swapped out the schottky diode for a version in JLC's basic parts list.
+
+### Old:
+
+https://jlcpcb.com/partdetail/23350-B5817WSSJ/C22623
+
+20V 450mV@1A 1A SOD-323 Schottky Barrier Diodes (SBD) ROHS
+
+### New:
+
+https://jlcpcb.com/partdetail/GuangdongHottech-1N5819WS/C191023
+
+40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes (SBD) ROHS
