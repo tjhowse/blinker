@@ -11,6 +11,10 @@ Run `generate_morse.py "<message>"` to write the byte sequence for that text to 
 
 This depends on the attiny10core detailed here: https://github.com/technoblogy/attiny10core
 
+## Arduino IDE
+
+I have a few versions of the arduino IDE installed. It looks like only 1.8.13 works currently. The newer one might be convinced to work, but needs the attiny10core package installed, probably.
+
 ## Flashing
 
 I used a USBasp. I used zadig to install the libusbK v3.1.0.0 driver. I had to flash the newer 2011 firmware to the USBasp and install the low-speed flashing jumper connection. There are a million different disagreeing guides for doing this, but this is what worked for me. By default the arduino IDE hides the detailed output from avrdude, and it misinterprets the return code. This means your code is successfully flashed to the uc but the IDE reports otherwise. In the preferences menu you can enable full output from compilation and upload.
