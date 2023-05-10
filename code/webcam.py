@@ -99,9 +99,9 @@ def on_click(event, x, y, flags, param):
         click_y = y
 
 parser = argparse.ArgumentParser(description='Code for Thresholding Operations using inRange tutorial.')
-parser.add_argument('--camera', help='Camera divide number.', default=1, type=int)
+parser.add_argument('--camera', help='Camera device number.', default=1, type=int)
 args = parser.parse_args()
-cap = cv.VideoCapture(args.camera)
+cap = cv.VideoCapture(args.camera, cv.CAP_DSHOW)
 
 cv.namedWindow(window_capture_name)
 cv.namedWindow(window_settings_name)

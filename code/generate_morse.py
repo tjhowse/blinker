@@ -8,6 +8,7 @@
 # // https://morsecode.world/international/timing.html
 # // Aim for 12 WPM, I.E. 1 character per second on average.
 
+import sys
 import click
 
 flash_bytes = 1024
@@ -127,8 +128,11 @@ def encode_string_to_c_bytes_array(string):
     return result, message
 
 @click.command()
-@click.argument('string')
+@click.argument('string', default="")
 def main_morse(string):
+    if string == "":
+        # Read from stdin instead
+        string = sys.stdin.read()
     array, message = encode_string_to_c_bytes_array(string)
     with open("blinker/sequence.h", "w") as f:
         f.write("// {}\n".format(message))
