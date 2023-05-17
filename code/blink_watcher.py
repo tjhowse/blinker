@@ -112,7 +112,8 @@ def on_click(event, x, y, flags, param):
 parser = argparse.ArgumentParser(description='Code for Thresholding Operations using inRange tutorial.')
 parser.add_argument('--camera', help='Camera device number.', default=1, type=int)
 args = parser.parse_args()
-cap = cv.VideoCapture(args.camera, cv.CAP_DSHOW)
+# cap = cv.VideoCapture(args.camera, cv.CAP_DSHOW)
+cap = cv.VideoCapture(args.camera)
 
 cv.namedWindow(window_capture_name)
 cv.namedWindow(window_settings_name)
@@ -156,6 +157,9 @@ with open("settings_watcher.toml", "r") as f:
     high_V = settings["high_V"]
     count_threshold = settings["count_threshold"]
     morse_time = settings["morse_time"]
+    boxes = settings["boxes"]
+    prev_led_state = [False for i in range(len(boxes))]
+
     cv.setTrackbarPos(low_H_name, window_settings_name, low_H)
     cv.setTrackbarPos(high_H_name, window_settings_name, high_H)
     cv.setTrackbarPos(low_S_name, window_settings_name, low_S)
@@ -178,8 +182,14 @@ def detect_led_on_off(frame, click_x, click_y):
     masked = np.zeros(frame_threshold.shape,np.uint8)
     masked[click_y-box_size:click_y+box_size,click_x-box_size:click_x+box_size] = frame_threshold[click_y-box_size:click_y+box_size,click_x-box_size:click_x+box_size]
     frame_threshold = masked
-    frame = cv.rectangle(frame, (click_x-box_size, click_y-box_size), (click_x+box_size, click_y+box_size), (255, 0, 255), thickness=1)
-    return (cv.countNonZero(frame_threshold) > count_threshold, frame_threshold)
+    on_off = cv.countNonZero(frame_threshold) > count_threshold
+    if on_off:
+        box_colour = (0, 0, 255)
+    else:
+        box_colour = (255, 0, 0)
+
+    frame = cv.rectangle(frame, (click_x-box_size, click_y-box_size), (click_x+box_size, click_y+box_size), box_colour, thickness=1)
+    return on_off, frame_threshold
 
 on_off = False
 start_time = time.time()*1000
@@ -188,49 +198,48 @@ letter = []
 fps_measure = start_time
 
 fps_print_deadline = time.monotonic() + 1
+print("Starting main loop")
 while True:
     ret, frame = cap.read()
     if frame is None:
+        print("Frame is none :(")
         break
     frame_time = time.time()*1000 - start_time
     frame_threshold = None
-
-    for i in range(len(boxes)):
-        x,y = boxes[i]
-        on_off, thresholded = detect_led_on_off(frame, x, y)
-        if i == 0:
-            frame_threshold = thresholded
-        else:
-            frame_threshold = cv.bitwise_or(frame_threshold, thresholded)
-        if prev_led_state[i] != on_off:
-            prev_led_state[i] = on_off
-            # Print the timestamp in iso8601 format
-            print(datetime.datetime.now().isoformat(), end=" ")
-            if on_off:
-                    print(f"LED {i} on")
+    with open("logfile.log", "a+") as logfile:
+        for i in range(len(boxes)):
+            x,y = boxes[i]
+            on_off, thresholded = detect_led_on_off(frame, x, y)
+            if i == 0:
+                frame_threshold = thresholded
             else:
-                    print(f"LED {i} off")
+                frame_threshold = cv.bitwise_or(frame_threshold, thresholded)
+            if prev_led_state[i] != on_off:
+                prev_led_state[i] = on_off
+                log_msg = f"{datetime.datetime.now().isoformat()},{i},{on_off}"
+                print(log_msg)
+                logfile.write(log_msg+"\n")
+        cv.imshow(window_capture_name, frame)
+        # cv.imshow(window_detection_name, frame_threshold)
+        if frame_threshold is not None:
+            cv.imshow(filtered_detection_name, frame_threshold)
 
-    cv.imshow(window_capture_name, frame)
-    # cv.imshow(window_detection_name, frame_threshold)
-    if frame_threshold is not None:
-        cv.imshow(filtered_detection_name, frame_threshold)
-
-    key = cv.waitKey(30)
-    if key == ord('q') or key == 27:
-        settings = {}
-        settings["low_H"] = low_H
-        settings["high_H"] = high_H
-        settings["low_S"] = low_S
-        settings["high_S"] = high_S
-        settings["low_V"] = low_V
-        settings["high_V"] = high_V
-        settings["high_F"] = high_F
-        settings["count_threshold"] = count_threshold
-        settings["hue"] = cam_hue
-        settings["gain"] = cam_gain
-        settings["saturation"] = cam_saturation
-        settings["morse_time"] = morse_time
-        with open("settings_watcher.toml", "w") as f:
-            toml.dump(settings, f)
-        break
+        key = cv.waitKey(30)
+        if key == ord('q') or key == 27:
+            settings = {}
+            settings["low_H"] = low_H
+            settings["high_H"] = high_H
+            settings["low_S"] = low_S
+            settings["high_S"] = high_S
+            settings["low_V"] = low_V
+            settings["high_V"] = high_V
+            settings["high_F"] = high_F
+            settings["count_threshold"] = count_threshold
+            settings["hue"] = cam_hue
+            settings["gain"] = cam_gain
+            settings["saturation"] = cam_saturation
+            settings["morse_time"] = morse_time
+            settings["boxes"] = boxes
+            with open("settings_watcher.toml", "w") as f:
+                toml.dump(settings, f)
+            break

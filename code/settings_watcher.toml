@@ -1,12 +1,13 @@
 low_H = 0
 high_H = 180
 low_S = 0
-high_S = 40
-low_V = 252
+high_S = 255
+low_V = 105
 high_V = 255
 high_F = 75
-count_threshold = 2
+count_threshold = 10
 hue = 0
 gain = 0
 saturation = 255
 morse_time = 120
+boxes = [ [ 169, 78,], [ 166, 118,], [ 165, 160,], [ 162, 196,], [ 132, 72,], [ 130, 108,], [ 127, 148,], [ 122, 181,],]
