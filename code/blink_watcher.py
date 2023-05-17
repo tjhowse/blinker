@@ -105,6 +105,18 @@ def on_click(event, x, y, flags, param):
         click_x = x
         click_y = y
         global boxes
+        # Check to see whether this click is inside an existing box
+        for i, box in enumerate(boxes):
+            if box[0] - box_size < x < box[0] + box_size and box[1] - box_size < y < box[1] + box_size:
+                # Mark this box as freed up
+                boxes[i] = (0,0)
+                return
+        for i, box in enumerate(boxes):
+            # Use the first free box we find.
+            if box == (0,0):
+                boxes[i] = (x, y)
+                return
+        # If there are no free boxes, create a new one.
         boxes.append((x, y))
         global prev_led_state
         prev_led_state.append(False)
