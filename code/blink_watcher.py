@@ -29,6 +29,7 @@ click_y = 0
 # This gets populated by clicks on the webcam image to set up points of interest
 boxes = []
 prev_led_state = []
+prev_box_brightness = []
 box_size = 5
 window_capture_name = 'Click LED'
 window_settings_name = 'Settings'
@@ -137,7 +138,7 @@ cv.createTrackbar(high_S_name, window_settings_name , high_S, max_value, on_high
 cv.createTrackbar(low_V_name, window_settings_name , low_V, max_value, on_low_V_thresh_trackbar)
 cv.createTrackbar(high_V_name, window_settings_name , high_V, max_value, on_high_V_thresh_trackbar)
 cv.createTrackbar(high_F_name, window_settings_name , high_F, max_value, on_F_trackbar)
-cv.createTrackbar("Threshold", window_settings_name , count_threshold, 1024, on_count_trackbar)
+cv.createTrackbar("Threshold", window_settings_name , count_threshold, 30000, on_count_trackbar)
 cv.createTrackbar("Hue", window_settings_name , cam_hue, 255, on_hue_trackbar)
 cv.createTrackbar("Gain", window_settings_name , cam_gain, 255, on_gain_trackbar)
 cv.createTrackbar("Saturation", window_settings_name , cam_saturation, 255, on_saturation_trackbar)
@@ -170,7 +171,8 @@ with open("settings_watcher.toml", "r") as f:
     count_threshold = settings["count_threshold"]
     morse_time = settings["morse_time"]
     boxes = settings["boxes"]
-    prev_led_state = [False for i in range(len(boxes))]
+    prev_led_state = [False for _ in range(len(boxes))]
+    prev_box_brightness = [0 for _ in range(len(boxes))]
 
     cv.setTrackbarPos(low_H_name, window_settings_name, low_H)
     cv.setTrackbarPos(high_H_name, window_settings_name, high_H)
@@ -203,6 +205,27 @@ def detect_led_on_off(frame, click_x, click_y):
     frame = cv.rectangle(frame, (click_x-box_size, click_y-box_size), (click_x+box_size, click_y+box_size), box_colour, thickness=1)
     return on_off, frame_threshold
 
+def get_box_frame_brightness(frame, x,y):
+    """ This returns the overall brightness summed over the box """
+    frame_HSV = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
+    frame_HSV = frame_HSV[y-box_size:y+box_size,x-box_size:x+box_size]
+    return np.sum(frame_HSV[:,:,2])
+
+def detect_led_on_off_based_on_brightness(frame, click_x, click_y, prev_lightness):
+    b = get_box_frame_brightness(frame, click_x, click_y)
+    if b - prev_lightness > count_threshold:
+        on_off = True
+    else:
+        on_off = False
+    # on_off = cv.countNonZero(frame_threshold) > count_threshold
+    if on_off:
+        box_colour = (0, 0, 255)
+    else:
+        box_colour = (255, 0, 0)
+
+    frame = cv.rectangle(frame, (click_x-box_size, click_y-box_size), (click_x+box_size, click_y+box_size), box_colour, thickness=1)
+    return on_off, prev_lightness
+
 on_off = False
 start_time = time.time()*1000
 last_transition_time = start_time
@@ -211,8 +234,16 @@ fps_measure = start_time
 
 fps_print_deadline = time.monotonic() + 1
 print("Starting main loop")
+prev_frame = None
 while True:
-    ret, frame = cap.read()
+    _, frame = cap.read()
+    if prev_frame is not None:
+        # Denoise the frame by subtracting the previous frame
+        cv.imshow("pre denoise", frame)
+        frame = cv.subtract(frame, prev_frame)
+    else:
+        prev_frame = frame
+    # frame = cv.fastNlMeansDenoisingColored(frame,None,10,10,7,21)
     if frame is None:
         print("Frame is none :(")
         break
@@ -221,11 +252,15 @@ while True:
     with open("logfile.log", "a+") as logfile:
         for i in range(len(boxes)):
             x,y = boxes[i]
-            on_off, thresholded = detect_led_on_off(frame, x, y)
-            if i == 0:
-                frame_threshold = thresholded
-            else:
-                frame_threshold = cv.bitwise_or(frame_threshold, thresholded)
+            if x == 0 and y == 0:
+                continue
+
+            # on_off, thresholded = detect_led_on_off(frame, x, y)
+            # if i == 0:
+            #     frame_threshold = thresholded
+            # else:
+            #     frame_threshold = cv.bitwise_or(frame_threshold, thresholded)
+            on_off, prev_box_brightness[i] = detect_led_on_off_based_on_brightness(frame, x, y, prev_box_brightness[i])
             if prev_led_state[i] != on_off:
                 prev_led_state[i] = on_off
                 log_msg = f"{datetime.datetime.now().isoformat()},{i},{on_off}"
