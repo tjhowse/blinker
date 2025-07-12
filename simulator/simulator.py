@@ -7,6 +7,7 @@ import pygame
 # https://robey.lag.net/2010/01/23/tiny-monospace-font.html
 # 5 high, 3 wide
 CHAR_BITMAPS = {
+    ' ': [0x00, 0x00],  # space
     'A': [0x57, 0xDA],
     'B': [0xD7, 0x5C],
     'C': [0x72, 0x46],
@@ -52,10 +53,12 @@ def draw_char(surface: pygame.Surface, char: str, ix: int, iy: int):
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((400, 300))
+    screen = pygame.display.set_mode((2*8, 5*8))
     pygame.display.set_caption("Character Bitmap Simulator")
-    capital_letters= list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
+    capital_letters= list('  HELLO THIS IS A TEST   ')
     index = 0
+
+    main_scroll = 0
 
     running = True
     while running:
@@ -64,9 +67,11 @@ def main():
                 running = False
         screen.fill((0, 0, 0))  # Clear the screen
         # print(capital_letters[index])
-        draw_char(screen, capital_letters[index], 50, 50)  # Draw current letter at position (50, 50)
+        for scroll, letter in enumerate(capital_letters):
+            draw_char(screen, letter, scroll * 8*4 - main_scroll, 0)  # Draw current letter at position (scroll * 8, 0)
         pygame.display.flip()  # Update the display
-        time.sleep(1)
+        time.sleep(0.1)
+        main_scroll = (main_scroll + 8) % (len(capital_letters) * 8 * 4)
         index = (index + 1) % len(capital_letters)  # Move to the next letter
 
     print(" Exiting the simulator...")
