@@ -49,13 +49,16 @@ def draw_char(surface: pygame.Surface, char: str, ix: int, iy: int):
     for y in range(5):
         for x in range(3):
             if (joined >> (15 - (y * 3 + x))) & 1:
-                pygame.draw.rect(surface, (255, 255, 255), (ix + x * 8, iy + y * 8, 8, 8))
+                # pygame.draw.rect(surface, (255, 255, 255), (ix + x * 8, iy + y * 8, 8, 8))
+                pygame.draw.circle(surface, (255, 255, 255), (ix + x * 8 + 4, iy + y * 8 + 4), 2)
+
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((2*8, 5*8))
+    # screen = pygame.display.set_mode((2*8, 5*8))
+    screen = pygame.display.set_mode((200,200))
     pygame.display.set_caption("Character Bitmap Simulator")
-    capital_letters= list('  HELLO THIS IS A TEST   ')
+    capital_letters= list('HELLO THIS IS A TEST   ')
     index = 0
 
     main_scroll = 0
@@ -68,7 +71,16 @@ def main():
         screen.fill((0, 0, 0))  # Clear the screen
         # print(capital_letters[index])
         for scroll, letter in enumerate(capital_letters):
-            draw_char(screen, letter, scroll * 8*4 - main_scroll, 0)  # Draw current letter at position (scroll * 8, 0)
+            draw_char(screen, letter, 100+scroll * 8*4 - int(main_scroll/8)*8-4, 100-(5*8)/2)  # Draw current letter at position (scroll * 8, 0)
+        visible_x_pixels = 3
+        visible_x = (visible_x_pixels*8)
+        # Draw four rectangles that cover up all of the screen except for a 16x64 square in the centre
+        # This is the area where the characters will be drawn
+        blank_colour = (0, 0, 0)
+        pygame.draw.rect(screen, color=blank_colour, rect=(0, 0, 200, 100-(5*8)/2))
+        pygame.draw.rect(screen, color=blank_colour, rect=(0, 100+(5*8)/2, 200, 200))
+        pygame.draw.rect(screen, color=blank_colour, rect=(int((100+visible_x/2)/8)*8, 0, 200, 200))
+        pygame.draw.rect(screen, color=blank_colour, rect=(0, 0, int((100-visible_x/2)/8)*8, 200))
         pygame.display.flip()  # Update the display
         time.sleep(0.1)
         main_scroll = (main_scroll + 8) % (len(capital_letters) * 8 * 4)
