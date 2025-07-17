@@ -58,7 +58,8 @@ def main():
     # screen = pygame.display.set_mode((2*8, 5*8))
     screen = pygame.display.set_mode((200,200))
     pygame.display.set_caption("Character Bitmap Simulator")
-    capital_letters= list('HELLO THIS IS A TEST   ')
+    # capital_letters= list('HELLO THIS IS A TEST   ')
+    capital_letters= list('B')
     index = 0
 
     main_scroll = 0
@@ -84,6 +85,7 @@ def main():
         pygame.display.flip()  # Update the display
         time.sleep(0.1)
         main_scroll = (main_scroll + 8) % (len(capital_letters) * 8 * 4)
+        main_scroll = 12
         index = (index + 1) % len(capital_letters)  # Move to the next letter
 
     print(" Exiting the simulator...")
