@@ -49,30 +49,30 @@ int main(void)
   DDRB|=_BV(ws2812_pin);
 
   while (1) {
-  for (uint8_t i = 0; message[i] != '\0'; i++) {
-    // uint16_t bitmap = TomThumbBitmaps[message[i] - 34];
-    // uint16_t bitmap = TomThumbBitmaps[33][1] + TomThumbBitmaps[33][0] << 8;
-    // uint16_t bitmap = (0x57 << 8) + 0xDA;
-    // uint16_t bitmap = 0XD75C; // B
-    uint16_t bitmap = getBitmapForCharacter(message[i]);
-    // uint16_t bitmap = getBitmapForCharacter('B');
-    for (uint8_t column = 2; column <= 2 && column >= 0; column--) {
-      for (uint8_t row = 4; row <= 4 && row >= 0; row--) {
-        if ((bitmap >> (15-(column + row*3))) & 0x1) {
-          ws2812_sendarray((uint8_t *)&ledOn,3);
-        } else {
-          // ws2812_sendarray((uint8_t *)&ledOn,3);
-          ws2812_sendarray((uint8_t *)&ledOff,3);
+    for (uint8_t i = 0; message[i] != '\0'; i++) {
+      // uint16_t bitmap = TomThumbBitmaps[message[i] - 34];
+      // uint16_t bitmap = TomThumbBitmaps[33][1] + TomThumbBitmaps[33][0] << 8;
+      // uint16_t bitmap = (0x57 << 8) + 0xDA;
+      // uint16_t bitmap = 0XD75C; // B
+      uint16_t bitmap = getBitmapForCharacter(message[i]);
+      // uint16_t bitmap = getBitmapForCharacter('B');
+      for (uint8_t column = 2; column <= 2 && column >= 0; column--) {
+        for (uint8_t row = 4; row <= 4 && row >= 0; row--) {
+          if ((bitmap >> (15-(column + row*3))) & 0x1) {
+            ws2812_sendarray((uint8_t *)&ledOn,3);
+          } else {
+            // ws2812_sendarray((uint8_t *)&ledOn,3);
+            ws2812_sendarray((uint8_t *)&ledOff,3);
+          }
         }
       }
+      // _delay_ms(50);
+      _delay_ms(400);
+      for (uint8_t j = 0; j < 15; j++) {
+        ws2812_sendarray((uint8_t *)&ledOff,3);
+      }
+      _delay_ms(300);
     }
-    // _delay_ms(50);
-    _delay_ms(200);
-    for (uint8_t i; i < 15; i++) {
-      ws2812_sendarray((uint8_t *)&ledOff,3);
-    }
-    _delay_ms(100);
-  }
   }
 
   // uint8_t pos=0;
