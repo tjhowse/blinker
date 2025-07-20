@@ -34,10 +34,12 @@ int main(void)
 
   while (1) {
     for (uint16_t charIndex = 0; charIndex < message_len; charIndex++) {
-      // int index = ((charIndex*6)/8);
-      // int shift = (charIndex*6)%8;
-      // unsigned int twobytes = (message[((charIndex*6)/8)] | message[((charIndex*6)/8)+1] << 8);
-      uint8_t c = (((message[((charIndex*6)/8)] | message[((charIndex*6)/8)+1] << 8) >> ((charIndex*6)%8)) & 0x003F) * 2;
+      // This henious nonsense looks up the character in the message array.
+      // Each character is 6 bits, so we need to read two bytes from the array
+      // in case the character straddles a byte boundary.
+      uint8_t index = (charIndex*6)/8; // Index of the first byte
+      uint8_t shift = (charIndex*6)%8; // Bit shift within the two bytes
+      uint8_t c = (((message[index] | message[index+1] << 8) >> shift) & 0x003F) * 2;
       uint16_t bitmap = (TomThumbBitmaps[c] << 8) | TomThumbBitmaps[c + 1];
       // uint16_t bitmap = getBitmapForCharacter('B');
       for (uint8_t column = 2; column <= 2 && column >= 0; column--) {
