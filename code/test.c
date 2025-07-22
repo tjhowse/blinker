@@ -6,21 +6,119 @@ const int message_len = (sizeof(message)/sizeof(message[0])*8)/6;
 // 100001 00   1110 1000   10 001110
 
 #include <stdio.h>
+#include <stdint.h>
+
+// #include "blinker/tomthumb_5x3_font.h"
+
+const uint8_t TomThumbBitmaps[] = {
+    0x00, 0x00,       /* 0x20 space */
+    0xE8, 0x00,       /* 0x21 exclam */
+    0xB4, 0x00,       /* 0x22 quotedbl */
+    0xBE, 0xFA,       /* 0x23 numbersign */
+    0x79, 0xE4,       /* 0x24 dollar */
+    0x85, 0x42,       /* 0x25 percent */
+    0xDB, 0xD6,       /* 0x26 ampersand */
+    0xC0, 0x00,       /* 0x27 quotesingle */
+    0x6A, 0x40,       /* 0x28 parenleft */
+    0x95, 0x80,       /* 0x29 parenright */
+    0xAA, 0x80,       /* 0x2A asterisk */
+    0x5D, 0x00,       /* 0x2B plus */
+    0x60, 0x00,       /* 0x2C comma */
+    0xE0, 0x00,       /* 0x2D hyphen */
+    0x80, 0x00,       /* 0x2E period */
+    0x25, 0x48,       /* 0x2F slash */
+    0x76, 0xDC,       /* 0x30 zero */
+    0x75, 0x40,       /* 0x31 one */
+    0xC5, 0x4E,       /* 0x32 two */
+    0xC5, 0x1C,       /* 0x33 three */
+    0xB7, 0x92,       /* 0x34 four */
+    0xF3, 0x1C,       /* 0x35 five */
+    0x73, 0xDE,       /* 0x36 six */
+    0xE5, 0x48,       /* 0x37 seven */
+    0xF7, 0xDE,       /* 0x38 eight */
+    0xF7, 0x9C,       /* 0x39 nine */
+    0xA0, 0x00,       /* 0x3A colon */
+    0x46, 0x00,       /* 0x3B semicolon */
+    0x2A, 0x22,       /* 0x3C less */
+    0xE3, 0x80,       /* 0x3D equal */
+    0x88, 0xA8,       /* 0x3E greater */
+    0xE5, 0x04,       /* 0x3F question */
+    0x57, 0xC6,       /* 0x40 at */
+    0x57, 0xDA,       /* 0x41 A */
+    0xD7, 0x5C,       /* 0x42 B */
+    0x72, 0x46,       /* 0x43 C */
+    0xD6, 0xDC,       /* 0x44 D */
+    0xF3, 0xCE,       /* 0x45 E */
+    0xF3, 0xC8,       /* 0x46 F */
+    0x73, 0xD6,       /* 0x47 G */
+    0xB7, 0xDA,       /* 0x48 H */
+    0xE9, 0x2E,       /* 0x49 I */
+    0x24, 0xD4,       /* 0x4A J */
+    0xB7, 0x5A,       /* 0x4B K */
+    0x92, 0x4E,       /* 0x4C L */
+    0xBF, 0xDA,       /* 0x4D M */
+    0xBF, 0xFA,       /* 0x4E N */
+    0x56, 0xD4,       /* 0x4F O */
+    0xD7, 0x48,       /* 0x50 P */
+    0x56, 0xF6,       /* 0x51 Q */
+    0xD7, 0xEA,       /* 0x52 R */
+    0x71, 0x1C,       /* 0x53 S */
+    0xE9, 0x24,       /* 0x54 T */
+    0xB6, 0xD6,       /* 0x55 U */
+    0xB6, 0xA4,       /* 0x56 V */
+    0xB7, 0xFA,       /* 0x57 W */
+    0xB5, 0x5A,       /* 0x58 X */
+    0xB5, 0x24,       /* 0x59 Y */
+    0xE5, 0x4E,       /* 0x5A Z */
+};
+
+
+uint16_t rotate_bitmap(uint16_t bitmap) {
+    uint8_t rotationMap[] = {
+        14, 11, 8, 5, 2,
+        13, 10, 7, 4, 1,
+        12, 9, 6, 3, 0
+    };
+    uint16_t rotated = 0;
+    for (int i = 0; i <= 15; i++) {
+        // printf("Offsetting %d by %d: %d\n", i, rotationMap[i], (bitmap >> (rotationMap[i])) & 0x1);
+        if ((bitmap >> (rotationMap[i]+1)) & 0x1) {
+            rotated |= (1 << (14-i));
+        }
+    }
+    return rotated;
+}
+
 int main() {
     // printf("Message length: %d\n", message_len);
-    // printf() displays the string inside quotation
-    for (unsigned int charIndex = 0; charIndex < message_len; charIndex++) {
-        int index = (charIndex*6)/8;
-        int shift = (charIndex*6)%8;
-        unsigned int twobytes = (message[index] | message[index+1] << 8);
-        // printf("\nTwobytes hex: 0x%04X binary: ", twobytes);
-        // for (int i = 15; i >= 0; i--) {
-            // printf("%d", (twobytes >> i) & 1);
+//     // printf() displays the string inside quotation
+//     for (unsigned int charIndex = 0; charIndex < message_len; charIndex++) {
+//         int index = (charIndex*6)/8;
+//         int shift = (charIndex*6)%8;
+//         unsigned int twobytes = (message[index] | message[index+1] << 8);
+//         // printf("\nTwobytes hex: 0x%04X binary: ", twobytes);
+//         // for (int i = 15; i >= 0; i--) {
+//             // printf("%d", (twobytes >> i) & 1);
+//         // }
+//         // printf("\n");
+//         unsigned int c = (twobytes >> (shift)) & 0x003F;
+//         printf("%c", c + 32);
+//         // printf("\nCharacter %d, array index %d shift %d int %d char '%c' ", charIndex, index, shift, c, c+32);
+//     }
+//    return 0;
+    for (unsigned int i = 0; i < 59; i++) {
+    // uint8_t i = 34; // B
+    // {
+        uint16_t bitmap = (TomThumbBitmaps[i*2] << 8) | TomThumbBitmaps[i*2 + 1];
+        uint16_t rotated = rotate_bitmap(bitmap);
+        // printf("0x%02X, 0x%02X,\n", (uint8_t)(bitmap >> 8), (uint8_t)bitmap);
+        printf("0x%02X, 0x%02X,\n", (uint8_t)(rotated >> 8), (uint8_t)rotated);
+        // printf("Binary: ");
+        // for (int j = 15; j >= 0; j--) {
+        //     printf("%d", (rotated >> j) & 1);
         // }
         // printf("\n");
-        unsigned int c = (twobytes >> (shift)) & 0x003F;
-        printf("%c", c + 32);
-        // printf("\nCharacter %d, array index %d shift %d int %d char '%c' ", charIndex, index, shift, c, c+32);
     }
-   return 0;
+    return 0;
 }
+

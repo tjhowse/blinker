@@ -36,7 +36,7 @@ CHAR_BITMAPS = {
     'Z': [0xE5, 0x4E],
 }
 
-def draw_char(surface: pygame.Surface, char: str, ix: int, iy: int):
+def draw_char_default(surface: pygame.Surface, char: str, ix: int, iy: int):
     """
     Draws a character on the given surface at the specified position.
     Each character is represented as a list of bytes, each byte is a column (5 bits high, LSB is top).
@@ -51,7 +51,6 @@ def draw_char(surface: pygame.Surface, char: str, ix: int, iy: int):
             if (joined >> (15 - (y * 3 + x))) & 1:
                 # pygame.draw.rect(surface, (255, 255, 255), (ix + x * 8, iy + y * 8, 8, 8))
                 pygame.draw.circle(surface, (255, 255, 255), (ix + x * 8 + 4, iy + y * 8 + 4), 2)
-
 
 def main():
     pygame.init()
@@ -72,7 +71,7 @@ def main():
         screen.fill((0, 0, 0))  # Clear the screen
         # print(capital_letters[index])
         for scroll, letter in enumerate(capital_letters):
-            draw_char(screen, letter, 100+scroll * 8*4 - int(main_scroll/8)*8-4, 100-(5*8)/2)  # Draw current letter at position (scroll * 8, 0)
+            draw_char_default(screen, letter, 100+scroll * 8*4 - int(main_scroll/8)*8-4, 100-(5*8)/2)  # Draw current letter at position (scroll * 8, 0)
         visible_x_pixels = 3
         visible_x = (visible_x_pixels*8)
         # Draw four rectangles that cover up all of the screen except for a 16x64 square in the centre

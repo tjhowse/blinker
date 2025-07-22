@@ -26,14 +26,14 @@ def convert_to_6bit_packed_string(input_string) -> str:
     while len(packed_bits_str) % 8 != 0:
         packed_bits_str += '0'
     # Reverse the order to ensure the bits are packed correctly
-    print(f"Padded packed bits: {packed_bits_str}")
+    # print(f"Padded packed bits: {packed_bits_str}")
     # packed_bits_str = packed_bits_str[::-1]
     # Split into chunks of 8 bits
     hex_output = []
     while packed_bits_str:
         # Take the last 8 bits
         bits = packed_bits_str[-8:]
-        print(bits)
+        # print(bits)
         packed_bits_str = packed_bits_str[:-8]
         # Convert to integer and then to hex
         hex_output.append(f"0x{int(bits, 2):02x}, ")
@@ -50,12 +50,12 @@ if __name__ == "__main__":
         sys.exit(1)
 
     input_string = sys.argv[1]
-    if len(input_string) > 634:
+    if len(input_string) > 758:
         print("Error: Input string is too long. Maximum length is 634 characters.")
         sys.exit(1)
     try:
         output = convert_to_6bit_packed_string(input_string.upper())
-        print(output)
+        print(f"const uint8_t message[] = {{{output}}};")
     except ValueError as e:
         print(f"Error: {e}")
         sys.exit(1)
