@@ -49,12 +49,15 @@ if __name__ == "__main__":
         print("Usage: python3 convert_to_6bit.py <input_string>")
         sys.exit(1)
 
-    input_string = sys.argv[1]
+    # Flatten the input a bit so it only uses ASCII between 32 and 95
+    input_string = sys.argv[1].upper()
+    input_string = input_string.replace('’', "'")  # Replace fancy apostrophes with standard ones
+    input_string = input_string.replace('…', "...")  # Replace fancy ellipses with standard ones
     if len(input_string) > 758:
         print("Error: Input string is too long. Maximum length is 634 characters.")
         sys.exit(1)
     try:
-        output = convert_to_6bit_packed_string(input_string.upper())
+        output = convert_to_6bit_packed_string(input_string)
         print(f"const uint8_t message[] = {{{output}}};")
     except ValueError as e:
         print(f"Error: {e}")
