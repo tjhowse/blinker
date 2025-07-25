@@ -59,7 +59,20 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "courtyards_overlap|166930000|114953988|cada4b9c-3d41-411d-896e-0b1ddd7b0b40|d3c11c8f-a73d-4211-934b-a6da255728ad",
+          ""
+        ],
+        [
+          "courtyards_overlap|169302000|114953988|64a0a545-c98f-4303-9b4e-39369697cf11|d3c11c8f-a73d-4211-934b-a6da255728ad",
+          ""
+        ],
+        [
+          "courtyards_overlap|173070000|114953988|08331947-3ad4-46e7-bfe6-72aaa63982c2|d3c11c8f-a73d-4211-934b-a6da255728ad",
+          ""
+        ]
+      ],
       "meta": {
         "version": 2
       },
@@ -508,8 +521,8 @@
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.15,
-        "via_diameter": 0.4,
-        "via_drill": 0.2,
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
         "wire_width": 3
       }
     ],
@@ -574,7 +587,7 @@
           "group_by": false,
           "label": "Qty",
           "name": "${QUANTITY}",
-          "show": true
+          "show": false
         },
         {
           "group_by": true,
@@ -610,7 +623,7 @@
           "group_by": false,
           "label": "Datasheet",
           "name": "Datasheet",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -647,14 +660,20 @@
           "label": "#",
           "name": "${ITEM_NUMBER}",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "MPN",
+          "name": "MPN",
+          "show": true
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
       "name": "",
-      "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_asc": false,
+      "sort_field": "${EXCLUDE_FROM_BOM}"
     },
     "connection_grid_size": 50.0,
     "drawing": {

@@ -2987,6 +2987,16 @@
 	)
 	(wire
 		(pts
+			(xy 240.03 77.47) (xy 242.57 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "acf85b43-ad91-45d6-b832-5788368e1f3a")
+	)
+	(wire
+		(pts
 			(xy 264.16 41.91) (xy 264.16 59.69)
 		)
 		(stroke
@@ -2994,6 +3004,16 @@
 			(type default)
 		)
 		(uuid "ae1a4fe9-6b3e-4429-be45-a3b1b56099bf")
+	)
+	(wire
+		(pts
+			(xy 217.17 77.47) (xy 218.44 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af43e3d7-2737-41ea-89ea-450ecff10cb1")
 	)
 	(wire
 		(pts
@@ -3187,6 +3207,16 @@
 	)
 	(wire
 		(pts
+			(xy 223.52 77.47) (xy 224.79 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "da9f0ec2-23a0-434a-b9b2-5febfe152f6f")
+	)
+	(wire
+		(pts
 			(xy 105.41 106.68) (xy 115.57 106.68)
 		)
 		(stroke
@@ -3264,6 +3294,16 @@
 			(type default)
 		)
 		(uuid "e24dd0ab-4d7c-476a-9f92-1b8f2b33b749")
+	)
+	(wire
+		(pts
+			(xy 247.65 77.47) (xy 248.92 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e380f9df-e54b-4c40-98b4-7eed6ffb5527")
 	)
 	(wire
 		(pts
@@ -4251,6 +4291,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 245.11 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "477246e4-0b6a-48aa-a5bf-8c0ff0003d4c")
 		)
@@ -4318,6 +4367,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 220.98 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "92093cbc-ecb8-4baf-ae64-b02181c08ec8")
 		)
@@ -4335,7 +4393,8 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 245.11 77.47 90)
+		(at 245.11 77.47 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4351,7 +4410,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 245.364 80.772 90)
+			(at 244.856 80.772 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4378,6 +4437,15 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 245.11 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 245.11 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4461,6 +4529,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "B140WS-7 Diodes Inc. Rectifier Diode, Schottky, 1 Phase, 1 Element, 1A, 40V V(RRM), Silicon"
+			(at 72.39 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "26195804-585f-4fd9-9505-0b2f463f4cc0")
 		)
@@ -4521,6 +4598,15 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 196.85 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 196.85 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4591,6 +4677,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 232.41 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 232.41 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4674,6 +4769,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 209.55 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a51a017f-5157-4cce-94ff-804a17f4c407")
 		)
@@ -4743,6 +4847,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 209.55 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 209.55 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4823,6 +4936,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 220.98 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7613fab8-92a5-4d7c-98a2-4efd197b890e")
 		)
@@ -4843,7 +4965,7 @@
 		(at 74.93 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -4960,6 +5082,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 209.55 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a013405c-b3d3-40b7-b1a5-38c0fdf748d1")
 		)
@@ -5026,6 +5157,15 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 220.98 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 220.98 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5103,6 +5243,15 @@
 			)
 		)
 		(property "LCSC" "C128438"
+			(at 90.17 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ATTINY10-TSHR Mcu 8-BIT Microchip AVR Risc 1KB Flash 2.5V/3.3V/5V 6-PIN SOT-23 T/r / IC Mcu 8 Bit 1KB Flash SOT23"
 			(at 90.17 114.3 0)
 			(effects
 				(font
@@ -5190,6 +5339,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 220.98 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "62499420-1bc1-4a38-83e6-ee3ecf0239ab")
 		)
@@ -5210,7 +5368,7 @@
 		(at 149.86 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -5330,6 +5488,15 @@
 		)
 		(property "Description" "Resistor, small symbol"
 			(at 248.92 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "ERJ-PA3F33R0V Panasonic Res Thick Film 0603 33 Ohm 1% 0.25W(1/4W) ±100ppm/C Pad SMD Automotive T/R"
+			(at 248.92 140.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5471,6 +5638,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 220.98 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "352abe63-6b42-4521-b8e3-cc6560291c06")
 		)
@@ -5534,6 +5710,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 256.54 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 256.54 59.69 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5617,6 +5802,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 256.54 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "0a2be9c8-298d-4251-ba90-c63788b74d9c")
 		)
@@ -5643,7 +5837,7 @@
 		(at 82.55 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "7d47261b-dc0d-4148-9f0b-cda3b32f51b1")
@@ -5761,6 +5955,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 232.41 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e1356646-5b3f-45bb-8df0-b0a0555aca48")
 		)
@@ -5830,6 +6033,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 209.55 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 209.55 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5910,6 +6122,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 245.11 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "e87cc73a-5b13-45b7-9224-cf43165304ce")
 		)
@@ -5970,6 +6191,15 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 196.85 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 196.85 59.69 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6135,6 +6365,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 232.41 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b8bb7d6d-c5a6-4acf-aba9-be25f8f8f1a8")
 		)
@@ -6204,6 +6443,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 232.41 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 232.41 41.91 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6284,6 +6532,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 196.85 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "33ffe74b-2083-4182-bd34-b9a97c24ecf5")
 		)
@@ -6347,6 +6604,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 209.55 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 209.55 95.25 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6430,6 +6696,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 256.54 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1804adbc-236d-41e4-8aba-a5f5fb091d6b")
 		)
@@ -6499,6 +6774,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 256.54 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 256.54 95.25 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6582,6 +6866,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 256.54 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c49405cf-13d4-4755-ba18-204f0ad0d12b")
 		)
@@ -6608,7 +6901,7 @@
 		(at 63.5 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
@@ -6704,7 +6997,7 @@
 		(at 91.44 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "cbe1d84f-58fe-4a73-a047-433ab35569c3")
@@ -6819,6 +7112,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 245.11 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d3db9515-628f-4cec-a386-82d3f0fb0696")
 		)
@@ -6878,6 +7180,15 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 254 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "04023C121KAT2A KYOCERA AVX Multilayer Ceramic Capacitors MLCC - SMD/SMT 25V 120pF X7R 0402 10%"
 			(at 254 143.51 0)
 			(effects
 				(font
@@ -6953,6 +7264,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 245.11 41.91 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "636891ba-8d97-49fc-b9fc-b4e93e27b5cb")
 		)
@@ -7013,6 +7333,15 @@
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 196.85 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 196.85 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7087,6 +7416,15 @@
 				(hide yes)
 			)
 		)
+		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+			(at 196.85 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "83a60588-4c4d-438f-9fe5-0d1d80750b65")
 		)
@@ -7150,6 +7488,15 @@
 		)
 		(property "Description" "RGB LED with integrated controller"
 			(at 232.41 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "LTST-E133CEGBK Lite-On Triple Color LED, Ultra Bright Red/ultra Bright Green/ultra Bright Blue, Water Clear, 1.3mm"
+			(at 232.41 95.25 90)
 			(effects
 				(font
 					(size 1.27 1.27)
