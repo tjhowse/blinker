@@ -1,56 +1,113 @@
-// http://www.technoblogy.com/show?1YQY
+#define ws2812_port B     // Data port
+#define ws2812_pin  2     // Data out pin
 
-uint32_t counter = 0;
 
-#include <avr/wdt.h>
-#include <avr/sleep.h>
-#include "sequence.h"
+#include <util/delay.h>
+#include <avr/io.h>
+#include <avr/interrupt.h>
 
-#define LED_OFF PORTB = 0b0100
-#define LED_ON PORTB = 0b0000
+#include "attiny10_ws2812.h"  // Include the ws2812 library
+#include "tomthumb_5x3_font.h" // Include the font header
+#include "message.h"
 
-void setup() {
-  // Power saving measures:
-  // Disable ADC:
-  ADCSRA = 0;
-  // Shut down ADC and timer0
-  PRR = 0b11;
+const uint16_t message_len = (sizeof(message)*8)/6;
+// Note: These are GRB values.
+const cRGB ledOff = {0,0,0};
+const cRGB ledOn = {16,16,16};
+const cRGB ledRed = {0,16,0};
 
-  // Setup IO:
-  DDRB = 0b0100; // PB2 as an output
-  LED_OFF;
+int main(void)
+{
 
-  // Enable interrupts
-  sei();
-}
+#ifdef __AVR_ATtiny10__
+  CCP=0xD8;   // configuration change protection, write signature
+  CLKPSR=0;   // set cpu clock prescaler =1 (8Mhz) (attiny 4/5/9/10)
 
-void sleep() {
-  // Tell the watchdog timer to wake us up in 120ms.
-  wdt_enable(WDTO_120MS);
-  WDTCSR |= (1<<WDIE | 1<<WDE);
+#else
+  CLKPR=_BV(CLKPCE);
+  CLKPR=0;      // set clock prescaler to 1 (attiny 25/45/85/24/44/84/13/13A)
 
-  // Go to sleep.
-  set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-  sleep_enable();
-  sleep_cpu();
-}
+#endif
+  DDRB|=_BV(ws2812_pin);
 
-// This looks at the next bit in the sequence and sets the LED accordingly.
-void blink() {
-  if (sequence[counter>>3] & (0x01 << counter%8)) {
-    LED_ON;
-  } else {
-    LED_OFF;
+  while (1) {
+    for (uint16_t charIndex = 0; charIndex < message_len; charIndex++) {
+      // This henious nonsense looks up the character in the message array.
+      // Each character is 6 bits, so we need to read two bytes from the array
+      // in case the character straddles a byte boundary.
+      uint8_t index = (charIndex*6)/8; // Index of the first byte
+      uint8_t shift = (charIndex*6)%8; // Bit shift within the two bytes
+      uint8_t c = (((message[index] | message[index+1] << 8) >> shift) & 0x003F) * 2;
+      // uint16_t bitmap = (TomThumbBitmaps[c] << 8) | TomThumbBitmaps[c + 1];
+      // c = 34*2; // B
+      uint16_t bitmap = (TomThumbBitmapsRotated[c] << 8) | TomThumbBitmapsRotated[c + 1];
+
+      for (uint8_t bit = 0; bit < 16; bit++) {
+        if ((bitmap >> bit) & 0x1) {
+          ws2812_sendarray((uint8_t *)&ledOn, 3); // Send the "on" color
+        } else {
+          ws2812_sendarray((uint8_t *)&ledOff, 3); // Send the "off" color
+        }
+      }
+      _delay_ms(400);
+
+      // Old style, reading non-rotated bitmaps.
+      // uint16_t bitmap = getBitmapForCharacter('B');
+      // for (uint8_t column = 2; column <= 2 && column >= 0; column--) {
+      //   for (uint8_t row = 4; row <= 4 && row >= 0; row--) {
+      //     if ((bitmap >> (15-(column + row*3))) & 0x1) {
+      //       ws2812_sendarray((uint8_t *)&ledOn,3);
+      //     } else {
+      //       // ws2812_sendarray((uint8_t *)&ledOn,3);
+      //       ws2812_sendarray((uint8_t *)&ledOff,3);
+      //     }
+      //   }
+      // }
+      // _delay_ms(400);
+
+      // Experiment for scrolling text.
+      // for (int8_t slide = -2; slide <= 2; slide++) {
+      //   for (uint8_t column = 2; column <= 2 && column >= 0; column--) {
+      //     for (uint8_t row = 4; row <= 4 && row >= 0; row--) {
+      //       if ((column + slide) < 0 || (column + slide) > 2) {
+      //         ws2812_sendarray((uint8_t *)&ledOff,3);
+      //         continue; // Skip out of bounds bits
+      //       }
+      //       if ((bitmap >> (15-((column + slide) + row*3))) & 0x1) {
+      //         ws2812_sendarray((uint8_t *)&ledOn,3);
+      //       } else {
+      //         // ws2812_sendarray((uint8_t *)&ledOn,3);
+      //         ws2812_sendarray((uint8_t *)&ledOff,3);
+      //       }
+      //     }
+      //   }
+      //   _delay_ms(100);
+      // }
+      // for (uint8_t j = 0; j < 15; j++) {
+      //   ws2812_sendarray((uint8_t *)&ledOff,3);
+      // }
+      // _delay_ms(100);
+    }
   }
-  counter = (counter + 1)%(sizeof(sequence)*8);
-}
 
-// This fires when the watchdog timer expires and wakes up the CPU.
-ISR(WDT_vect) {
-  sleep_disable();
-}
+  // uint8_t pos=0;
+  // uint8_t direction=1;
+  // uint8_t i;
 
-void loop() {
-  blink();
-  sleep();
+  // while(1)
+  //   {
+
+  //   for (i=0; i<pos; i++)
+  //     ws2812_sendarray((uint8_t *)&ledRed,3);     // Repeatedly send "red" to the led string.
+  //                             // No more than 1-2 s should pass between calls
+  //                             // to avoid issuing a reset condition.
+  //   for (i=0; i<(30-pos); i++)
+  //     ws2812_sendarray((uint8_t *)&ledOn,3);     // white
+
+
+  //   _delay_ms(50);                    // Issue reset and wait for 50 ms.
+
+  //   pos+=direction;
+  //   if ((pos==16)||(pos==0)) direction=-direction;
+  //   }
 }

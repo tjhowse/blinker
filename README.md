@@ -13,6 +13,13 @@ Code: Python and C.
 
 Build journal/docs: https://wiki.tjhowse.com/doku.php?id=projects:blinker:overview
 
+## V2
+
+I2C EEPROM
+
+https://www.st.com/en/memories/m24128-bf.html
+
+
 ## Component rev history
 
 Swapped out the schottky diode for a version in JLC's basic parts list.
