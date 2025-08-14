@@ -5,7 +5,7 @@
 	(uuid "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55")
 	(paper "A4")
 	(title_block
-		(rev "2.0")
+		(rev "2.01")
 	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_02x03_Odd_Even"
@@ -4291,7 +4291,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 245.11 95.25 90)
 			(effects
 				(font
@@ -4367,7 +4367,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 220.98 113.03 90)
 			(effects
 				(font
@@ -4444,7 +4444,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 245.11 77.47 90)
 			(effects
 				(font
@@ -4605,7 +4605,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 196.85 41.91 90)
 			(effects
 				(font
@@ -4936,7 +4936,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 220.98 77.47 90)
 			(effects
 				(font
@@ -5164,7 +5164,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 220.98 41.91 90)
 			(effects
 				(font
@@ -5339,7 +5339,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 220.98 95.25 90)
 			(effects
 				(font
@@ -5638,7 +5638,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 220.98 59.69 90)
 			(effects
 				(font
@@ -6122,7 +6122,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 245.11 59.69 90)
 			(effects
 				(font
@@ -6198,7 +6198,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 196.85 59.69 90)
 			(effects
 				(font
@@ -6532,7 +6532,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 196.85 113.03 90)
 			(effects
 				(font
@@ -7112,7 +7112,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 245.11 113.03 90)
 			(effects
 				(font
@@ -7153,7 +7153,7 @@
 				)
 			)
 		)
-		(property "Value" "120 pF"
+		(property "Value" "100 pF"
 			(at 259.588 143.256 0)
 			(effects
 				(font
@@ -7188,7 +7188,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "04023C121KAT2A KYOCERA AVX Multilayer Ceramic Capacitors MLCC - SMD/SMT 25V 120pF X7R 0402 10%"
+		(property "MPN" "01016D101KAT2A KYOCERA AVX Capacitor, SMD, MultiLayer Ceramic (MLCC), 01005 Case, 6.3Vdc, X5R, 100pF, ±10%, ø7T/R"
 			(at 254 143.51 0)
 			(effects
 				(font
@@ -7264,7 +7264,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 245.11 41.91 90)
 			(effects
 				(font
@@ -7340,7 +7340,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 196.85 77.47 90)
 			(effects
 				(font
@@ -7416,7 +7416,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0402YD104KAT2A KYOCERA AVX 0402 100 nF 16 V ±10 % Tolerance X5R Surface Mount Multilayer Ceramic Capacitor "
+		(property "MPN" "01016D104KAT2A KYOCERA AVX 01005 (0402Metric) CERAMIC CAPACITOR ceramic capacitor 6.3V 0.1muF ±10% X5R"
 			(at 196.85 95.25 90)
 			(effects
 				(font
