@@ -4647,7 +4647,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 243.84 74.5646 90)
 			(effects
 				(font
@@ -4732,7 +4732,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 220.98 56.7846 90)
 			(effects
 				(font
@@ -4817,7 +4817,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 220.98 110.1246 90)
 			(effects
 				(font
@@ -5045,7 +5045,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 220.98 39.0046 90)
 			(effects
 				(font
@@ -5680,7 +5680,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 267.97 56.7846 90)
 			(effects
 				(font
@@ -5765,7 +5765,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 267.97 110.1246 90)
 			(effects
 				(font
@@ -5918,7 +5918,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 243.84 56.7846 90)
 			(effects
 				(font
@@ -6003,7 +6003,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 220.98 74.5646 90)
 			(effects
 				(font
@@ -6328,7 +6328,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 243.84 110.1246 90)
 			(effects
 				(font
@@ -6413,7 +6413,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 243.84 39.0046 90)
 			(effects
 				(font
@@ -6574,7 +6574,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 220.98 92.3446 90)
 			(effects
 				(font
@@ -6659,7 +6659,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 267.97 74.5646 90)
 			(effects
 				(font
@@ -6744,7 +6744,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 267.97 92.3446 90)
 			(effects
 				(font
@@ -6829,7 +6829,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 267.97 39.0046 90)
 			(effects
 				(font
@@ -7153,7 +7153,7 @@
 				)
 			)
 		)
-		(property "Value" "120 pF"
+		(property "Value" "120pF"
 			(at 259.588 143.256 0)
 			(effects
 				(font
@@ -7458,7 +7458,7 @@
 				)
 			)
 		)
-		(property "Value" "WS2812B"
+		(property "Value" "LED"
 			(at 243.84 92.3446 90)
 			(effects
 				(font
