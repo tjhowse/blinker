@@ -21,21 +21,25 @@ def convert_to_6bit_packed_string(input_string) -> str:
             raise ValueError(f"Character '{char}' is out of range for 6-bit encoding.")
         packed_bits = [f"{value:06b}"] + packed_bits
     # Join all the packed bits and convert to hex
+    # print(packed_bits)
     packed_bits_str = ''.join(packed_bits)
+    # print(packed_bits_str)
     # Pad the packed bits to make sure its length is a multiple of 8
     while len(packed_bits_str) % 8 != 0:
-        packed_bits_str += '0'
+        packed_bits_str = '0' + packed_bits_str
     # Reverse the order to ensure the bits are packed correctly
     # print(f"Padded packed bits: {packed_bits_str}")
     # packed_bits_str = packed_bits_str[::-1]
     # Split into chunks of 8 bits
     hex_output = []
+    # print(packed_bits_str)
     while packed_bits_str:
         # Take the last 8 bits
         bits = packed_bits_str[-8:]
         # print(bits)
         packed_bits_str = packed_bits_str[:-8]
         # Convert to integer and then to hex
+        # print("Packing bits:", bits)
         hex_output.append(f"0x{int(bits, 2):02x}, ")
     # for i in range(len(packed_bits_str), 0, -8):
     #     byte = packed_bits_str[i:i-8]
@@ -58,6 +62,7 @@ if __name__ == "__main__":
         sys.exit(1)
     try:
         output = convert_to_6bit_packed_string(input_string)
+        print(f"// {input_string}")
         print(f"const uint8_t message[] = {{{output}}};")
     except ValueError as e:
         print(f"Error: {e}")
