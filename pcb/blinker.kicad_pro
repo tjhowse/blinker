@@ -544,6 +544,10 @@
       {
         "netclass": "Data",
         "pattern": "LEDSTRING"
+      },
+      {
+        "netclass": "Data",
+        "pattern": "2.7VCC"
       }
     ]
   },
