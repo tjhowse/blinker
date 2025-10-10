@@ -5,7 +5,7 @@
 	(uuid "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55")
 	(paper "A4")
 	(title_block
-		(rev "2.0")
+		(rev "2.1")
 	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_02x03_Odd_Even"
@@ -1214,7 +1214,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "LED:WS2812B"
+		(symbol "LED_LTST:LTST-E133CEGBK"
 			(pin_names
 				(offset 0.254)
 			)
@@ -1230,7 +1230,7 @@
 					(justify right bottom)
 				)
 			)
-			(property "Value" "WS2812B"
+			(property "Value" "LTST-E133CEGBK"
 				(at 1.27 -5.715 0)
 				(effects
 					(font
@@ -1239,7 +1239,7 @@
 					(justify left top)
 				)
 			)
-			(property "Footprint" "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
+			(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
 				(at 1.27 -7.62 0)
 				(effects
 					(font
@@ -1249,7 +1249,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
+			(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
 				(at 2.54 -9.525 0)
 				(effects
 					(font
@@ -1286,7 +1286,7 @@
 					(hide yes)
 				)
 			)
-			(symbol "WS2812B_0_0"
+			(symbol "LTST-E133CEGBK_0_0"
 				(text "RGB"
 					(at 2.286 -4.191 0)
 					(effects
@@ -1296,7 +1296,18 @@
 					)
 				)
 			)
-			(symbol "WS2812B_0_1"
+			(symbol "LTST-E133CEGBK_0_1"
+				(rectangle
+					(start -5.08 5.08)
+					(end 5.08 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
 				(polyline
 					(pts
 						(xy 1.27 -2.54) (xy 1.778 -2.54)
@@ -1381,23 +1392,12 @@
 						(type none)
 					)
 				)
-				(rectangle
-					(start 5.08 5.08)
-					(end -5.08 -5.08)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
 			)
-			(symbol "WS2812B_1_1"
-				(pin input line
+			(symbol "LTST-E133CEGBK_1_1"
+				(pin output line
 					(at -7.62 0 0)
 					(length 2.54)
-					(name "DIN"
+					(name "DOUT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1448,10 +1448,10 @@
 						)
 					)
 				)
-				(pin output line
+				(pin input line
 					(at 7.62 0 180)
 					(length 2.54)
-					(name "DOUT"
+					(name "DIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4630,17 +4630,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 232.41 77.47 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2705b5bd-cd89-4eda-8e54-f59138ee9063")
 		(property "Reference" "D9"
-			(at 243.84 72.0246 90)
+			(at 241.3 82.9154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4648,15 +4648,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 243.84 74.5646 90)
+			(at 241.3 80.3754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 240.03 76.2 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 240.03 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4665,8 +4665,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 241.935 74.93 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 241.935 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4715,17 +4715,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 209.55 59.69 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2c9a39ab-e812-4ee6-aeb9-f51cbd925451")
 		(property "Reference" "D15"
-			(at 220.98 54.2446 90)
+			(at 218.44 65.1354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4733,15 +4733,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 220.98 56.7846 90)
+			(at 218.44 62.5954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 217.17 58.42 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 217.17 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4750,8 +4750,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 219.075 57.15 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 219.075 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4800,17 +4800,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 209.55 113.03 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "2d8892b0-9cdf-449d-b977-6fec5e54180c")
 		(property "Reference" "D12"
-			(at 220.98 107.5846 90)
+			(at 218.44 118.4754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4818,15 +4818,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 220.98 110.1246 90)
+			(at 218.44 115.9354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 217.17 111.76 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 217.17 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4835,8 +4835,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 219.075 110.49 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 219.075 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5028,17 +5028,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 209.55 41.91 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3b72b25c-14d2-42a4-a3bc-8e41b3d7e826")
 		(property "Reference" "D16"
-			(at 220.98 36.4646 90)
+			(at 218.44 47.3554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5046,15 +5046,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 220.98 39.0046 90)
+			(at 218.44 44.8154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 217.17 40.64 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 217.17 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5063,8 +5063,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 219.075 39.37 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 219.075 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5663,17 +5663,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 256.54 59.69 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6771dc7b-8362-44ad-b1f0-c38001baac11")
 		(property "Reference" "D5"
-			(at 267.97 54.2446 90)
+			(at 265.43 65.1354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5681,15 +5681,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 267.97 56.7846 90)
+			(at 265.43 62.5954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 264.16 58.42 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 264.16 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5698,8 +5698,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 266.065 57.15 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 266.065 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5748,17 +5748,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 256.54 113.03 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6e8ea116-93b2-4511-8b2f-a9fd6b5f5eae")
 		(property "Reference" "D2"
-			(at 267.97 107.5846 90)
+			(at 265.43 118.4754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5766,15 +5766,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 267.97 110.1246 90)
+			(at 265.43 115.9354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 264.16 111.76 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 264.16 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5783,8 +5783,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 266.065 110.49 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 266.065 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5901,17 +5901,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 232.41 59.69 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "81e91c31-18ae-4fa7-a730-8a48ae96b775")
 		(property "Reference" "D10"
-			(at 243.84 54.2446 90)
+			(at 241.3 65.1354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5919,15 +5919,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 243.84 56.7846 90)
+			(at 241.3 62.5954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 240.03 58.42 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 240.03 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5936,8 +5936,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 241.935 57.15 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 241.935 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5986,17 +5986,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 209.55 77.47 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "85e87b5f-6a48-4520-a74a-5c47bfe4e3f8")
 		(property "Reference" "D14"
-			(at 220.98 72.0246 90)
+			(at 218.44 82.9154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6004,15 +6004,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 220.98 74.5646 90)
+			(at 218.44 80.3754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 217.17 76.2 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 217.17 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6021,8 +6021,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 219.075 74.93 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 219.075 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6311,17 +6311,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 232.41 113.03 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a1f597e5-4bb5-4ae3-b5c0-c0d7d023dde2")
 		(property "Reference" "D7"
-			(at 243.84 107.5846 90)
+			(at 241.3 118.4754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6329,15 +6329,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 243.84 110.1246 90)
+			(at 241.3 115.9354 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 240.03 111.76 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 240.03 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6346,8 +6346,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 241.935 110.49 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 241.935 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6396,17 +6396,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 232.41 41.91 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a6a5e34b-0c00-49eb-b517-af63e502e908")
 		(property "Reference" "D11"
-			(at 243.84 36.4646 90)
+			(at 241.3 47.3554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6414,15 +6414,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 243.84 39.0046 90)
+			(at 241.3 44.8154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 240.03 40.64 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 240.03 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6431,8 +6431,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 241.935 39.37 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 241.935 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6482,7 +6482,8 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 196.85 113.03 90)
+		(at 196.85 113.03 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6498,7 +6499,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 197.104 116.332 90)
+			(at 196.596 116.332 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6557,17 +6558,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 209.55 95.25 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c03469e6-f997-4b34-bed2-df2730c43f06")
 		(property "Reference" "D13"
-			(at 220.98 89.8046 90)
+			(at 218.44 100.6954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6575,15 +6576,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 220.98 92.3446 90)
+			(at 218.44 98.1554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 217.17 93.98 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 217.17 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6592,8 +6593,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 219.075 92.71 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 219.075 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6642,17 +6643,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 256.54 77.47 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c2cc2a07-c6a5-4225-8d80-132292fdcf21")
 		(property "Reference" "D4"
-			(at 267.97 72.0246 90)
+			(at 265.43 82.9154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6660,15 +6661,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 267.97 74.5646 90)
+			(at 265.43 80.3754 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 264.16 76.2 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 264.16 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6677,8 +6678,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 266.065 74.93 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 266.065 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6727,17 +6728,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 256.54 95.25 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c54a2de4-3a57-4784-8a48-963d5527a7e4")
 		(property "Reference" "D3"
-			(at 267.97 89.8046 90)
+			(at 265.43 100.6954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6745,15 +6746,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 267.97 92.3446 90)
+			(at 265.43 98.1554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 264.16 93.98 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 264.16 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6762,8 +6763,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 266.065 92.71 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 266.065 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6812,17 +6813,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 256.54 41.91 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "c86462c8-cfb6-4e9f-8c07-3b32318e16fa")
 		(property "Reference" "D6"
-			(at 267.97 36.4646 90)
+			(at 265.43 47.3554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6830,15 +6831,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 267.97 39.0046 90)
+			(at 265.43 44.8154 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 264.16 40.64 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 264.16 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6847,8 +6848,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 266.065 39.37 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 266.065 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7441,17 +7442,17 @@
 		)
 	)
 	(symbol
-		(lib_id "LED:WS2812B")
+		(lib_id "LED_LTST:LTST-E133CEGBK")
 		(at 232.41 95.25 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "ed990a14-f0d7-48cf-ab81-ab6ebdfe4539")
 		(property "Reference" "D8"
-			(at 243.84 89.8046 90)
+			(at 241.3 100.6954 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7459,15 +7460,15 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 243.84 92.3446 90)
+			(at 241.3 98.1554 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_Wurth_150044M155260"
-			(at 240.03 93.98 0)
+		(property "Footprint" "LED_LTST:LED_LTST-E133CEGBK"
+			(at 240.03 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7476,8 +7477,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf"
-			(at 241.935 92.71 0)
+		(property "Datasheet" "https://optoelectronics.liteon.com/upload/download/DS22-2021-0144/LTST-E133CEGBK.PDF"
+			(at 241.935 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
