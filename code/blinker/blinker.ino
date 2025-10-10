@@ -14,7 +14,13 @@ const uint16_t message_len = (sizeof(message)*8)/6;
 // Note: These are GRB values.
 const cRGB ledOff = {0,0,0};
 const cRGB ledOn = {16,16,16};
-const cRGB ledRed = {0,16,0};
+const cRGB ledGreen = {0,16,0};
+const cRGB ledRed = {1,0,0};
+const cRGB ledBlue = {0,0,16};
+
+
+// 2025-09-23 First run white, then green.
+// 2025-09-24 Red then blue
 
 int main(void)
 {
@@ -44,7 +50,8 @@ int main(void)
 
       for (uint8_t bit = 0; bit < 16; bit++) {
         if ((bitmap >> bit) & 0x1) {
-          ws2812_sendarray((uint8_t *)&ledOn, 3); // Send the "on" color
+          // ws2812_sendarray((uint8_t *)&ledOn, 3); // Send the "on" color
+          ws2812_sendarray((uint8_t *)&ledRed, 3); // Send the "on" color
         } else {
           ws2812_sendarray((uint8_t *)&ledOff, 3); // Send the "off" color
         }
@@ -98,7 +105,7 @@ int main(void)
   //   {
 
   //   for (i=0; i<pos; i++)
-  //     ws2812_sendarray((uint8_t *)&ledRed,3);     // Repeatedly send "red" to the led string.
+  //     ws2812_sendarray((uint8_t *)&ledGreen,3);     // Repeatedly send "red" to the led string.
   //                             // No more than 1-2 s should pass between calls
   //                             // to avoid issuing a reset condition.
   //   for (i=0; i<(30-pos); i++)
